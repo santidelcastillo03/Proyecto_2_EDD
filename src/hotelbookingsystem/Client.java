@@ -9,12 +9,24 @@ package hotelbookingsystem;
  * @author Santiago
  */
 public class Client {
-    String name;
-    String ID;
+    private String name;
+    private String ID;
+    private String lastName;
+    private Room room;
 
-    public Client(String name, String ID) {
+    public Client(String name, String lastName, String ID, int roomNum) {
         this.name = name;
+        this.lastName = lastName;
         this.ID = ID;
+        this.room = room;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getName() {
@@ -31,6 +43,14 @@ public class Client {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
     
     

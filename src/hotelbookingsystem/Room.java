@@ -9,5 +9,19 @@ package hotelbookingsystem;
  * @author santiagodelcastillo
  */
 public class Room {
+    String ID;
+
+    public Room(String ID) {
+        this.ID = ID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+    
     
 }

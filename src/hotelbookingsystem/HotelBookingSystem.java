@@ -8,7 +8,7 @@ package hotelbookingsystem;
  *
  * @author Santiago
  */
-public class HoteBookingSystem {
+public class HotelBookingSystem {
 
     /**
      * @param args the command line arguments
