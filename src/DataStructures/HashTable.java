@@ -9,14 +9,14 @@ package DataStructures;
  * @author Santiago
  */
 public class HashTable<K,V> {
-    private  Node<K,V>[] table;
+    private  HTNode<K,V>[] table;
     private int size;
     private static final float loadFactor = 0.75f;
     private  int entries;
     
     public HashTable(int size) {
         this.size = size;
-        table = new Node[size];
+        table = new HTNode[size];
     }
     
     private int hash(K key) {
@@ -29,11 +29,11 @@ public class HashTable<K,V> {
         }
         
         int index = hash(key);
-        Node<K,V> node = new Node<>(key, value);
+        HTNode<K,V> node = new HTNode<>(key, value);
         if (table[index] == null) {
             table[index] = node;
         }else {
-            Node<K,V> aux = table[index];
+            HTNode<K,V> aux = table[index];
             while (aux.next != null) {                
                 if (aux.key.equals(key)) {
                     aux.value = value;
@@ -56,13 +56,13 @@ public class HashTable<K,V> {
     
     private void rehash(){
         size *= 2;
-        Node<K,V>[] oldTable = table;
-        table = new Node[size];
+        HTNode<K,V>[] oldTable = table;
+        table = new HTNode[size];
         entries = 0;
-        for (Node<K,V> node : oldTable) {
+        for (HTNode<K,V> node : oldTable) {
             if (node != null) {
                 put(node.key, node.value);
-                Node<K,V> aux = node.next;
+                HTNode<K,V> aux = node.next;
                 while (aux != null) {                    
                     put(aux.key, aux.value);
                     aux = aux.next;
@@ -73,7 +73,7 @@ public class HashTable<K,V> {
     
     public V get(K key) {
         int index = hash(key);
-        Node<K,V> node = table[index];
+        HTNode<K,V> node = table[index];
         while (node != null) {
             if (node.key.equals(key)) {
                 return node.value;
@@ -85,7 +85,7 @@ public class HashTable<K,V> {
     
     public DynamicArray<K> keys() {
         DynamicArray<K> keys = new DynamicArray<>();
-        for (Node<K,V> node : table) {
+        for (HTNode<K,V> node : table) {
             while (node != null) {
                 keys.add(node.key);
                 node = node.next;

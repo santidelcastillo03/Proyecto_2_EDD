@@ -8,6 +8,6 @@ package DataStructures;
  *
  * @author Santiago
  */
-public class Tree {
+public class BSTNode {
     
 }

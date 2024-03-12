@@ -8,39 +8,23 @@ package hotelbookingsystem;
  *
  * @author Santiago
  */
-public class ReservationSearch {
+public class RoomHistory {
     String ID;
     String name;
     String lastName;
     String email;
     String gender;
     String checkIn;
-    String checkOut;
+    Room room;
 
-    public ReservationSearch(String ID, String name, String lastName, String email, String gender, String checkIn, String checkOut) {
+    public RoomHistory(String ID, String name, String lastName, String email, String gender, String checkIn, Room room) {
         this.ID = ID;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
         this.checkIn = checkIn;
-        this.checkOut = checkOut;
-    }
-
-    public String getCheckIn() {
-        return checkIn;
-    }
-
-    public void setCheckIn(String checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public String getCheckOut() {
-        return checkOut;
-    }
-
-    public void setCheckOut(String checkOut) {
-        this.checkOut = checkOut;
+        this.room = room;
     }
 
     public String getID() {
@@ -82,4 +66,21 @@ public class ReservationSearch {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+    
 }

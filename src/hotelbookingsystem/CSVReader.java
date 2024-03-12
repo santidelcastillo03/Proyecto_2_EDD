@@ -4,6 +4,7 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.BST;
 import DataStructures.HashTable;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -61,11 +62,11 @@ CSVReader {
         System.out.println(clients.getSize());
     }
     
-    public void readReservas() {
+    public BST<ReservationSearch> readReservas() {
         
     }
     
-    public void readHistorico() {
+    public BST<RoomHistory> readHistorico() {
         
     }
     
