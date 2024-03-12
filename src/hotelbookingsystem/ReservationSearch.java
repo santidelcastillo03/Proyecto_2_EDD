@@ -8,6 +8,6 @@ package hotelbookingsystem;
  *
  * @author Santiago
  */
-public class Reservation {
+public class ReservationSearch {
     
 }

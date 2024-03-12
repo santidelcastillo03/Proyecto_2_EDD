@@ -4,10 +4,67 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.HashTable;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author santiagodelcastillo
  */
 public class CSVReader {
+    private String path;
+
+    public CSVReader(String path) {
+        this.path = path;
+    }
+   
     
+     public HashTable<String, ClientRoomSearch> readEstado() {
+        HashTable<String, ClientRoomSearch> clients = new HashTable<>(100);
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values= line.split(",");
+                Room room = null;
+                if (values[0] != null && !values[0].isEmpty()) {
+                    room = new Room(values[0]);
+                }
+                if (room != null) {
+                    ClientRoomSearch info = new ClientRoomSearch(values[1], values[2], room);
+                    String key = values[1] + " " + values[2];
+                    clients.put(key, info);
+                }
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return clients;
+    }
+
+    public void printHashTable(HashTable<String, ClientRoomSearch> table) {
+        for (String key : table.keys()) {
+            System.out.println(table.get(key));
+        }
+    }
+
+    public void PrintEstado() {
+        HashTable<String, ClientRoomSearch> clients = readEstado();
+        printHashTable(clients);
+        System.out.println(clients.getSize());
+    }
+    
+    public void readReservas() {
+        
+    }
+    
+    public void readHistorico() {
+        
+    }
+    
+    public void readHabitaciones() {
+        
+    }
 }
