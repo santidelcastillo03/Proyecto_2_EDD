@@ -13,7 +13,8 @@ import java.io.IOException;
  *
  * @author santiagodelcastillo
  */
-public class CSVReader {
+public class
+CSVReader {
     private String path;
 
     public CSVReader(String path) {
@@ -24,6 +25,7 @@ public class CSVReader {
      public HashTable<String, ClientRoomSearch> readEstado() {
         HashTable<String, ClientRoomSearch> clients = new HashTable<>(100);
         String line;
+        Room previousRoom = null;
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             br.readLine();
             while ((line = br.readLine()) != null) {
@@ -31,6 +33,9 @@ public class CSVReader {
                 Room room = null;
                 if (values[0] != null && !values[0].isEmpty()) {
                     room = new Room(values[0]);
+                    previousRoom = room;
+                }else {
+                    room = previousRoom;
                 }
                 if (room != null) {
                     ClientRoomSearch info = new ClientRoomSearch(values[1], values[2], room, values[3], values[4], values[5], values[6]);
