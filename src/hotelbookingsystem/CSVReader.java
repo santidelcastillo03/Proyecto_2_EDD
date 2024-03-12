@@ -33,7 +33,7 @@ public class CSVReader {
                     room = new Room(values[0]);
                 }
                 if (room != null) {
-                    ClientRoomSearch info = new ClientRoomSearch(values[1], values[2], room);
+                    ClientRoomSearch info = new ClientRoomSearch(values[1], values[2], room, values[3], values[4], values[5], values[6]);
                     String key = values[1] + " " + values[2];
                     clients.put(key, info);
                 }

@@ -12,11 +12,51 @@ public class ClientRoomSearch {
     private String name;
     private String lastName;
     private Room room;
+    private String email;
+    private String gender;
+    private String phone;
+    private String arrival;
 
-    public ClientRoomSearch(String name, String lastName, Room room) {
+    public ClientRoomSearch(String name, String lastName, Room room, String email, String gender, String phone, String arrival) {
         this.name = name;
         this.lastName = lastName;
         this.room = room;
+        this.email = email;
+        this.gender = gender;
+        this.phone = phone;
+        this.arrival = arrival;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
     public String getLastName() {
@@ -45,11 +85,7 @@ public class ClientRoomSearch {
     
     @Override
     public String toString() {
-        return "ClientSearch{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", room=" + room .toString()+
-                '}';
+        return "Name: "+name +" /Last name: "+lastName+" /ROOM: "+room+" /email: "+email+ " /gender: "+gender+" /phone: "+phone+" /arrival: "+arrival;
     }
     
 }

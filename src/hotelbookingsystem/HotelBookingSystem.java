@@ -17,7 +17,7 @@ public class HotelBookingSystem {
         Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
         );
         CSVReader csvr = new CSVReader("src/CSVFiles/Booking_hotel - estado.csv");
-        csvr.PrintAll();
+        csvr.PrintEstado();
         String roomID = hotel.checkClient("Tiff","MacKibbon");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
