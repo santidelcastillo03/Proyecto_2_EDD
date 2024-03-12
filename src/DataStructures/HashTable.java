@@ -23,7 +23,7 @@ public class HashTable<K,V> {
         return Math.abs(key.hashCode()) % size;
     }
     
-    private void put(K key, V value) {
+    public void put(K key, V value) {
         if (entries >= size * loadFactor) {
             rehash();
         }
@@ -49,6 +49,10 @@ public class HashTable<K,V> {
         }
         entries++;
     }
+
+    public int getSize() {
+        return size;
+    }
     
     private void rehash(){
         size *= 2;
@@ -65,5 +69,28 @@ public class HashTable<K,V> {
                 }
             }
         }
+    }
+    
+    public V get(K key) {
+        int index = hash(key);
+        Node<K,V> node = table[index];
+        while (node != null) {
+            if (node.key.equals(key)) {
+                return node.value;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+    
+    public DynamicArray<K> keys() {
+        DynamicArray<K> keys = new DynamicArray<>();
+        for (Node<K,V> node : table) {
+            while (node != null) {
+                keys.add(node.key);
+                node = node.next;
+            }
+        }
+        return keys;
     }
 }

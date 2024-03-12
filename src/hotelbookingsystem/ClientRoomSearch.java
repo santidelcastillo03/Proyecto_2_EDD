@@ -8,16 +8,14 @@ package hotelbookingsystem;
  *
  * @author Santiago
  */
-public class Client {
+public class ClientRoomSearch {
     private String name;
-    private String ID;
     private String lastName;
     private Room room;
 
-    public Client(String name, String lastName, String ID, int roomNum) {
+    public ClientRoomSearch(String name, String lastName, Room room) {
         this.name = name;
         this.lastName = lastName;
-        this.ID = ID;
         this.room = room;
     }
 
@@ -37,14 +35,6 @@ public class Client {
         this.name = name;
     }
 
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
     public Room getRoom() {
         return room;
     }
@@ -53,5 +43,13 @@ public class Client {
         this.room = room;
     }
     
+    @Override
+    public String toString() {
+        return "ClientSearch{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", room=" + room .toString()+
+                '}';
+    }
     
 }

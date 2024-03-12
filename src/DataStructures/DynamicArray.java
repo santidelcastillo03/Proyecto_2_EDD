@@ -11,59 +11,52 @@ import java.util.NoSuchElementException;
  * @author Santiago
  */
 public class DynamicArray<T> implements Iterable<T> {
-    private Object[] array;
-    private int size = 0;
+    private Object[] data;
+    private int size;
 
     public DynamicArray() {
-        array = new Object[2];
+        data = new Object[1];
+        size = 0;
     }
-
-    public void add(T item) {
-        if (size == array.length) {
-            resize();
+    
+    private void checkCapacity(int minCapacity) {
+        int oldCapacity = data.length;
+        if (minCapacity > oldCapacity) {
+            Object[] oldData = data;
+            data = new Object[minCapacity];
+            System.arraycopy(oldData, 0, data, 0, size); //copia el array
         }
-        array[size++] = item;
+    }
+    
+    public void add(Object element) {
+        if (size == data.length) {
+            checkCapacity(2 * data.length);
+        }
+        data[size++] = element;
     }
 
     public void remove(int index) {
         if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
+        while (index < size - 1) {
+            data[index] = data[index + 1];
+            index++;
         }
         size--;
     }
 
-    public void removeN(T element) {
-        int index = -1;
-        for (int i = 0; i < size; i++) {
-            if (array[i].equals(element)) {
-                index = i;
-                break;
-            }
-        }
-        if (index != -1) {
-            remove(index);
-        }
-    }
-
-    public T get(int index) {
+    public Object get(int index) {
         if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-        return (T) array[index];
+        return data[index];
     }
 
     public int size() {
         return size;
     }
 
-    private void resize() {
-        Object[] newArray = new Object[array.length * 2];
-        System.arraycopy(array, 0, newArray, 0, array.length);
-        array = newArray;
-    }
 
 
 
@@ -74,7 +67,7 @@ public class DynamicArray<T> implements Iterable<T> {
 
                 @Override
                 public boolean hasNext() {
-                    return currentIndex < size && array[currentIndex] != null;
+                    return currentIndex < size && data[currentIndex] != null;
                 }
 
                 @Override
@@ -82,17 +75,8 @@ public class DynamicArray<T> implements Iterable<T> {
                     if (!hasNext()) {
                         throw new NoSuchElementException();
                     }
-                    return (T) array[currentIndex++];
+                    return (T) data[currentIndex++];
                 }
             };
         }
-
-        public int indexOf(T item) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].equals(item)) {
-                return i;
-            }
-        }
-        return -1;
-    }
 }

@@ -23,5 +23,8 @@ public class Room {
         this.ID = ID;
     }
     
-    
+    @Override
+    public String toString() {
+        return ID;
+    }
 }

@@ -14,7 +14,16 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
+        );
+
+        String roomID = hotel.checkClient("Arielle","Bragger");
+        if (roomID != null) {
+            System.out.println("Room number: " + roomID);
+        } else {
+            System.out.println("Client not found");
+        }
+       
     }
     
 }
