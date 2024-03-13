@@ -85,7 +85,7 @@ public class ClientRoomSearch {
     
     @Override
     public String toString() {
-        return "Name: "+name +" /Last name: "+lastName+" /ROOM: "+room+" /email: "+email+ " /gender: "+gender+" /phone: "+phone+" /arrival: "+arrival;
+        return "Name: "+name +" /Last name: "+lastName+" /ROOM: "+room.getID()+" /email: "+email+ " /gender: "+gender+" /phone: "+phone+" /arrival: "+arrival;
     }
     
 }

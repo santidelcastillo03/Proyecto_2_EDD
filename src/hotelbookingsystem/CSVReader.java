@@ -5,6 +5,7 @@
 package hotelbookingsystem;
 
 import DataStructures.BST;
+import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -25,15 +26,16 @@ CSVReader {
     
      public HashTable<String, ClientRoomSearch> readEstado() {
         HashTable<String, ClientRoomSearch> clients = new HashTable<>(100);
+        HashTable<String,Room> rooms = readHabitaciones();
         String line;
         Room previousRoom = null;
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - estado.csv"))) {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values= line.split(",");
-                Room room = null;
+                Room room;
                 if (values[0] != null && !values[0].isEmpty()) {
-                    room = new Room(values[0]);
+                    room = rooms.get(values[0]);
                     previousRoom = room;
                 }else {
                     room = previousRoom;
@@ -61,16 +63,38 @@ CSVReader {
         printHashTable(clients);
         System.out.println(clients.getSize());
     }
-    
+    /*
     public BST<ReservationSearch> readReservas() {
         
     }
     
     public BST<RoomHistory> readHistorico() {
         
+    }*/
+    
+    public HashTable<String,Room> readHabitaciones() {
+        HashTable<String,Room> rooms = new HashTable<>(100);
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - habitaciones.csv"))) {
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                String ID = values[0];
+                String type = values[1];
+                String level = values[2];
+                Room room = new Room(ID, type, level);
+                rooms.put(ID,room);
+            }
+    }catch (IOException e) {
+        e.printStackTrace();
+    }
+        return rooms;
     }
     
-    public void readHabitaciones() {
-        
+    public void printRooms() {
+    HashTable<String, Room> rooms = readHabitaciones();
+    for (String key : rooms.keys()) {
+        System.out.println(rooms.get(key));
     }
+}
 }
