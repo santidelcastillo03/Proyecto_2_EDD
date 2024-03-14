@@ -39,4 +39,31 @@ public class BST {
             }
         }
     }
+    // INORDER TRAVERSAL METHOD
+    public void inorderTraversal(BSTNode r) {
+        if (r != null) {
+            inorderTraversal(r.leftSon);
+            System.out.print(r.data);
+            inorderTraversal(r.rightSon);
+        }
+    }
+
+    // SEARCH METHOD
+    public BSTNode search(int key) {
+        BSTNode current = root;
+        while (current != null && current.data != key) {
+            if (key < current.data) {
+                current = current.leftSon;
+            } else {
+                current = current.rightSon;
+            }
+        }
+        return current;
+    }
+    //CHECK IF TREE IS EMPTY METHOD
+    public boolean isEmpty(){
+        return root==null;
+    }
+    
 }
+
