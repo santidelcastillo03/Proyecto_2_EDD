@@ -8,12 +8,12 @@ package DataStructures;
  *
  * @author santiagodelcastillo
  */
-public class Node<K,V> {
+public class HTNode<K,V> {
     K key;
     V value;
-    Node<K,V> next;
+    HTNode<K,V> next;
 
-    public Node(K key, V value) {
+    public HTNode(K key, V value) {
         this.key = key;
         this.value = value;
     }
