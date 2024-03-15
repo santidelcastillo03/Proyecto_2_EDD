@@ -9,13 +9,13 @@ package hotelbookingsystem;
  * @author Santiago
  */
 public class RoomHistory {
-    String ID;
-    String name;
-    String lastName;
-    String email;
-    String gender;
-    String checkIn;
-    Room room;
+    private String ID;
+    private String name;
+    private String lastName;
+    private String email;
+    private String gender;
+    private String checkIn;
+    private Room room;
 
     public RoomHistory(String ID, String name, String lastName, String email, String gender, String checkIn, Room room) {
         this.ID = ID;

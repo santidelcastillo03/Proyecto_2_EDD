@@ -63,14 +63,14 @@ CSVReader {
         printHashTable(clients);
         System.out.println(clients.getSize());
     }
-    /*
-    public BST<ReservationSearch> readReservas() {
+
+    public AVLTree<ReservationSearch> readReservas() {
         
     }
     
-    public BST<RoomHistory> readHistorico() {
+    public AVLTree<RoomHistory> readHistorico() {
         
-    }*/
+    }
     
     public HashTable<String,Room> readHabitaciones() {
         HashTable<String,Room> rooms = new HashTable<>(100);

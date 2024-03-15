@@ -9,13 +9,13 @@ package hotelbookingsystem;
  * @author Santiago
  */
 public class ReservationSearch {
-    String ID;
-    String name;
-    String lastName;
-    String email;
-    String gender;
-    String checkIn;
-    String checkOut;
+    private String ID;
+    private String name;
+    private String lastName;
+    private String email;
+    private String gender;
+    private String checkIn;
+    private String checkOut;
 
     public ReservationSearch(String ID, String name, String lastName, String email, String gender, String checkIn, String checkOut) {
         this.ID = ID;
