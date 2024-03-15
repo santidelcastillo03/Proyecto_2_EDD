@@ -4,6 +4,9 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.BST;
+import DataStructures.BSTNode;
+import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 
 /**
@@ -11,23 +14,69 @@ import DataStructures.HashTable;
  * @author santiagodelcastillo
  */
 public class Hotel {
-    private HashTable<String, ClientRoomSearch> clients;
-    private CSVReader csvReader;
+    private HashTable<String, Guest> currentGuests;
+    private CSVReaderGuestsRooms csvReaderGuestsRooms;
+    private CSVReaderReservationHistory csvReaderReservationHistory;
+    private BST reservations;
+    private BST roomHistory;
+    
 
     public Hotel(int size, String csvPath) {
-        this.clients = new HashTable<>(size);
-        this.csvReader = new CSVReader(csvPath);
-        this.clients = csvReader.readEstado();
+        this.currentGuests = new HashTable<>(size);
+        this.csvReaderGuestsRooms = new CSVReaderGuestsRooms(csvPath);
+        this.currentGuests = csvReaderGuestsRooms.readGuests();
+        this.csvReaderReservationHistory = new CSVReaderReservationHistory(csvPath);
+        this.reservations = csvReaderReservationHistory.readReservations();
+        this.roomHistory = csvReaderReservationHistory.readHistory();
     }
+   
 
-    public void uploadClient(ClientRoomSearch client) {
+    public void uploadClient(Guest client) {
         String key = client.getName() + " " + client.getLastName();
-        clients.put(key, client);
+        currentGuests.put(key, client);
     }
 
-    public String checkClient(String firstName, String lastName) {
+    public String checkGuest(String firstName, String lastName) {
         String key = firstName + " " + lastName;
-        ClientRoomSearch client = clients.get(key);
+        Guest client = currentGuests.get(key);
         return client != null ? client.getRoom().getID() : null;
     }
-}
+    
+    public ClientReservation searchReservationByCi(int ci) {    
+        BSTNode current = reservations.getRoot();
+        while (current != null) {
+            if (ci == current.getId()) {
+                return (ClientReservation) current.getData();
+            } else if (ci < current.getId()) {
+                current = current.getLeftSon();
+            } else {
+                current = current.getRightSon();
+                }
+    }
+    return null; // Return null if the reservation with the given ID is not found
+} // @author Angel 
+    
+    public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
+        BSTNode current = reservations.getRoot();
+        while (current != null) {
+            if (roomNumber == current.getId()) {
+                return (DynamicArray) current.getData();
+            } else if (roomNumber < current.getId()) {
+                current = current.getLeftSon();
+            } else {
+                current = current.getRightSon();
+                }
+    }
+    return null; // Return null if the reservation with the given ID is not found
+} // @author Angel 
+    
+    
+    
+    
+    
+    //public String freeRoom(String roomType){
+        //for(reservation :  )}
+        
+            
+        }
+

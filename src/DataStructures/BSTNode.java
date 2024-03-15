@@ -6,8 +6,20 @@ package DataStructures;
 
 /**
  *
- * @author Santiago
+ * @author Angel
  */
-public class BSTNode {
-    
+public class BSTNode<T> {
+    int data;
+    T name;
+    BSTNode leftSon, rightSon;
+    public BSTNode(int d, T n){
+        this.data = d;
+        this.name = n;
+        this.leftSon = null;
+        this.rightSon = null;
+    }
+    public String toString(){
+        return name + "sus datos son: " + data;
+    }
+
 }
