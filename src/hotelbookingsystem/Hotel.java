@@ -73,11 +73,11 @@ public class Hotel {
     
     
     
-    
+    /*
     public String freeRoom(String roomType){
         
         S
-        
+        */
             
         }
 

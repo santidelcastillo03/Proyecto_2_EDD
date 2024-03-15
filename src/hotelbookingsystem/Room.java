@@ -9,9 +9,9 @@ package hotelbookingsystem;
  * @author santiagodelcastillo
  */
 public class Room {
-    String ID;
-    String type;
-    String level;
+    private String ID;
+    private String type;
+    private String level;
 
     public Room(String ID, String type, String level) {
         this.ID = ID;
@@ -45,6 +45,6 @@ public class Room {
     
     @Override
 public String toString() {
-    return "Room ID: " + ID + ", Type: " + type + ", Level: " + level;
+    return "Room ID: " + getID() + ", Type: " + getType() + ", Level: " + getLevel();
 }
 }
