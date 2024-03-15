@@ -14,31 +14,30 @@ public class BST<T> {
         root = null;
     }
     //INSERT NODE (METHOD)
-    public void addNode(int d, T n){
-        BSTNode newn = new BSTNode(d, n);
-        if(root==null){
-            root=newn;
-        }else{
-            BSTNode auxiliar=root;
-            BSTNode father;
-            while(true){
-                father=auxiliar;
-                if(d<auxiliar.data){
-                    auxiliar=auxiliar.leftSon;
-                    if(auxiliar==null){
-                        father.leftSon = newn;
-                        return;
-                    }
-                }else{
-                    auxiliar=auxiliar.rightSon;
-                    if(auxiliar==null){
-                        father.rightSon= newn;
-                        return;
-                    }
-                }
-            }
+    
+    public void addNode(int id, T data) {
+        BSTNode newn = new BSTNode(id, data);
+        if (root == null) {
+            root = newn;
+        } else {
+            root = insert(root, newn);
         }
     }
+
+    private BSTNode insert(BSTNode current, BSTNode newNode) {
+        if (current == null) {
+            return newNode;
+        }
+
+        if (newNode.id < current.id) {
+            current.leftSon = insert(current.leftSon, newNode);
+        } else {
+            current.rightSon = insert(current.rightSon, newNode);
+        }
+
+        return current;
+    }
+
     // INORDER TRAVERSAL METHOD
     public void inorderTraversal(BSTNode r) {
         if (r != null) {
@@ -51,8 +50,8 @@ public class BST<T> {
     // SEARCH METHOD
     public BSTNode search(int key) {
         BSTNode current = root;
-        while (current != null && current.data != key) {
-            if (key < current.data) {
+        while (current != null && current.id != key) {
+            if (key < current.id) {
                 current = current.leftSon;
             } else {
                 current = current.rightSon;
@@ -60,10 +59,18 @@ public class BST<T> {
         }
         return current;
     }
-    //CHECK IF TREE IS EMPTY METHOD
-    public boolean isEmpty(){
-        return root==null;
-    }
-    
-}
 
+    // CHECK IF TREE IS EMPTY METHOD
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    public BSTNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(BSTNode root) {
+        this.root = root;
+    }
+
+}

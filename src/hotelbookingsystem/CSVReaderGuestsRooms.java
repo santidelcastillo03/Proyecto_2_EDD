@@ -17,13 +17,13 @@ import java.io.IOException;
  */
 public class CSVReaderGuestsRooms {
     private String path;
-    private DynamicArray<Guest> allGuests;
-    private DynamicArray<Room> allRooms;
+    private BST allGuests;
+    private BST allRooms;
 
     public CSVReaderGuestsRooms(String path) {
         this.path = path;
-        this.allGuests = new DynamicArray();
-        this.allRooms = new DynamicArray();
+        this.allGuests = new BST();
+        this.allRooms = new BST();
     }
    
     
@@ -45,7 +45,7 @@ public class CSVReaderGuestsRooms {
                 }
                 if (room != null) {
                     Guest info = new Guest(values[1], values[2], room, values[3], values[4], values[5], values[6]);
-                    allGuests.add(info);
+                    allGuests.addNode(Integer.parseInt(room.getID()), info);
                     String key = values[1] + " " + values[2];
                     clients.put(key, info);
                 }
@@ -79,7 +79,7 @@ public class CSVReaderGuestsRooms {
                 String type = values[1];
                 String level = values[2];
                 Room room = new Room(ID, type, level);
-                allRooms.add(room);
+                allRooms.addNode(Integer.parseInt(ID), room);
                 rooms.put(ID,room);
             }
     }catch (IOException e) {
@@ -103,19 +103,19 @@ public class CSVReaderGuestsRooms {
         this.path = path;
     }
 
-    public DynamicArray<Guest> getAllGuests() {
+    public BST getAllGuests() {
         return allGuests;
     }
 
-    public void setAllGuests(DynamicArray<Guest> allGuests) {
+    public void setAllGuests(BST allGuests) {
         this.allGuests = allGuests;
     }
 
-    public DynamicArray<Room> getAllRooms() {
+    public BST getAllRooms() {
         return allRooms;
     }
 
-    public void setAllRooms(DynamicArray<Room> allRooms) {
+    public void setAllRooms(BST allRooms) {
         this.allRooms = allRooms;
     }
 }
