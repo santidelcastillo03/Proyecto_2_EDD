@@ -9,7 +9,7 @@ package DataStructures;
  * @author Santiago
  */
 public class HashTable<K,V> {
-    private  HTNode<K,V>[] table;
+    private HTNode<K,V>[] table;
     private int size;
     private static final float loadFactor = 0.75f;
     private  int entries;
@@ -17,6 +17,18 @@ public class HashTable<K,V> {
     public HashTable(int size) {
         this.size = size;
         table = new HTNode[size];
+    }
+
+    public HTNode<K, V>[] getTable() {
+        return table;
+    }
+
+    public static float getLoadFactor() {
+        return loadFactor;
+    }
+
+    public int getEntries() {
+        return entries;
     }
     
     private int hash(K key) {
@@ -93,4 +105,45 @@ public class HashTable<K,V> {
         }
         return keys;
     }
+    public HashTable<K, V> copyHashTable() {
+        HashTable<K, V> copiedTable = new HashTable<>(size);
+        for (int i = 0; i < size; i++) {
+            if (table[i] != null) {
+                copiedTable.put(table[i].key, table[i].value);
+                HTNode<K, V> aux = table[i].next;
+                while (aux != null) {
+                    copiedTable.put(aux.key, aux.value);
+                    aux = aux.next;
+                }
+            }
+        }
+        return copiedTable;
+    }
+    
+    public HTNode removeNode(K key){
+        int index = hash(key);
+        HTNode<K,V> head = table[index];
+        if(head != null){
+            if(head.key.equals(key)){
+                HTNode <K, V> node = head;
+                table[index] = head.next;
+                entries--;
+                return node;
+            }
+        
+        HTNode<K,V> prev = null;
+        HTNode<K,V> current = head;
+        
+        while(current != null){
+            if(current.key.equals(key)){
+                prev.next = current.next;
+                entries--;
+                return current;
+            }
+            prev = current;
+            current = current.next;
+        }
+    }
+        return null;
+}
 }

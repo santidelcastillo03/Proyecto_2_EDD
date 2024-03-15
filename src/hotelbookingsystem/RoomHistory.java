@@ -5,25 +5,25 @@
 package hotelbookingsystem;
 
 /**
- *
+ * HISTORICO
  * @author Santiago
  */
 public class RoomHistory {
-    private String ID;
-    private String name;
-    private String lastName;
-    private String email;
-    private String gender;
-    private String checkIn;
-    private Room room;
+    String ID;
+    String name;
+    String lastName;
+    String email;
+    String gender;
+    String arrival;
+    int room;
 
-    public RoomHistory(String ID, String name, String lastName, String email, String gender, String checkIn, Room room) {
+    public RoomHistory(String ID, String name, String lastName, String email, String gender, String arrival, int room) {
         this.ID = ID;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
-        this.checkIn = checkIn;
+        this.arrival = arrival;
         this.room = room;
     }
 
@@ -67,19 +67,19 @@ public class RoomHistory {
         this.gender = gender;
     }
 
-    public String getCheckIn() {
-        return checkIn;
+    public String getArrival() {
+        return arrival;
     }
 
-    public void setCheckIn(String checkIn) {
-        this.checkIn = checkIn;
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
-    public Room getRoom() {
+    public int getRoom() {
         return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(int room) {
         this.room = room;
     }
     
