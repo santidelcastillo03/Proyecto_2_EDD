@@ -5,10 +5,10 @@
 package hotelbookingsystem;
 
 /**
- *
+ * ESTADO
  * @author Santiago
  */
-public class ClientRoomSearch {
+public class Guest {
     private String name;
     private String lastName;
     private Room room;
@@ -17,7 +17,7 @@ public class ClientRoomSearch {
     private String phone;
     private String arrival;
 
-    public ClientRoomSearch(String name, String lastName, Room room, String email, String gender, String phone, String arrival) {
+    public Guest(String name, String lastName, Room room, String email, String gender, String phone, String arrival) {
         this.name = name;
         this.lastName = lastName;
         this.room = room;
@@ -82,6 +82,8 @@ public class ClientRoomSearch {
     public void setRoom(Room room) {
         this.room = room;
     }
+    
+    
     
     @Override
     public String toString() {

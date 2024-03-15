@@ -8,11 +8,11 @@ package DataStructures;
  *
  * @author Angel
  */
-public class BSTNode {
+public class BSTNode<T> {
     int data;
-    String name;
+    T name;
     BSTNode leftSon, rightSon;
-    public BSTNode(int d, String n){
+    public BSTNode(int d, T n){
         this.data = d;
         this.name = n;
         this.leftSon = null;

@@ -16,10 +16,10 @@ public class HotelBookingSystem {
     public static void main(String[] args) {
         Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
         );
-        CSVReader csvr = new CSVReader("src/CSVFiles/Booking_hotel - estado.csv");
+        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms("src/CSVFiles/Booking_hotel - estado.csv");
         csvr.PrintEstado();
         csvr.printRooms();
-        String roomID = hotel.checkClient("Diane","Devote");
+        String roomID = hotel.checkGuest("Diane","Devote");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
         } else {

@@ -8,14 +8,14 @@ package DataStructures;
  *
  * @author Angel
  */
-public class BST {
+public class BST<T> {
     BSTNode root;
     public BST(){
         root = null;
     }
     //INSERT NODE (METHOD)
-    public void addNode(int d, String n){
-        BSTNode newn = new BSTNode(d,n);
+    public void addNode(int d, T n){
+        BSTNode newn = new BSTNode(d, n);
         if(root==null){
             root=newn;
         }else{

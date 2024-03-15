@@ -4,11 +4,13 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.BSTNode;
+
 /**
- *
+ *RESERVAS
  * @author Angel
  */
-public class ClientReservationSearch {
+public class ClientReservation {
     private String ci;
     private String firstName;
     private String lastName;
@@ -18,8 +20,11 @@ public class ClientReservationSearch {
     private String phoneNum;
     private String arrival;
     private String departure;
+    private boolean checkIn;
+    private boolean checkOut;
+    
 
-    public ClientReservationSearch(String ci, String firstName, String lastName, String email, String gender, String roomType, String phoneNum, String arrival, String departure) {
+    public ClientReservation(String ci, String firstName, String lastName, String email, String gender, String roomType, String phoneNum, String arrival, String departure) {
         this.ci = ci;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,6 +34,8 @@ public class ClientReservationSearch {
         this.phoneNum = phoneNum;
         this.arrival = arrival;
         this.departure = departure;
+        this.checkIn = false;
+        this.checkOut = false;
     }
 
     public String getCi() {
@@ -102,6 +109,23 @@ public class ClientReservationSearch {
     public void setDeparture(String departure) {
         this.departure = departure;
     }
+
+    public boolean isCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(boolean checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public boolean isCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(boolean checkOut) {
+        this.checkOut = checkOut;
+    }
+
 
     @Override
     public String toString() {
