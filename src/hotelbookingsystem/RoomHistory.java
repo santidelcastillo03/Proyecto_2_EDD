@@ -8,7 +8,7 @@ package hotelbookingsystem;
  * HISTORICO
  * @author Santiago
  */
-public class RoomHistory {
+public class RoomHistory implements Comparable<RoomHistory> {
     String ID;
     String name;
     String lastName;
@@ -82,5 +82,10 @@ public class RoomHistory {
     public void setRoom(int room) {
         this.room = room;
     }
-    
-}
+
+    @Override
+    public int compareTo(RoomHistory other) {
+        return this.ID.compareTo(other.ID);
+    }
+    }
+

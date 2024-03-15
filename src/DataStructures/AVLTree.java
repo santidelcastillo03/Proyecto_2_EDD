@@ -6,7 +6,7 @@ package DataStructures;
 
 /**
  *
- * @author Santiago
+ * @author santiagodelcastillo
  */
 public class AVLTree<T extends Comparable<T>> {
     private AVLNode<T> root;
