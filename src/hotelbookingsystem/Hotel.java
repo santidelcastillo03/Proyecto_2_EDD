@@ -4,8 +4,8 @@
  */
 package hotelbookingsystem;
 
-import DataStructures.BST;
-import DataStructures.BSTNode;
+import DataStructures.AVLNode;
+import DataStructures.AVLTree;
 import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 
@@ -16,18 +16,18 @@ import DataStructures.HashTable;
 public class Hotel {
     private HashTable<String, Guest> currentGuests;
     private CSVReaderGuestsRooms csvReaderGuestsRooms;
-    private CSVReaderReservationHistory csvReaderReservationHistory;
-    private BST reservations;
-    private BST roomHistory;
+    private READERconAVL csvReaderconAVL;
+    private AVLTree<ClientReservation> reservations;
+    private AVLTree<RoomHistory> roomHistory;
     
 
     public Hotel(int size, String csvPath) {
         this.currentGuests = new HashTable<>(size);
         this.csvReaderGuestsRooms = new CSVReaderGuestsRooms(csvPath);
         this.currentGuests = csvReaderGuestsRooms.readGuests();
-        this.csvReaderReservationHistory = new CSVReaderReservationHistory(csvPath);
-        this.reservations = csvReaderReservationHistory.readReservations();
-        this.roomHistory = csvReaderReservationHistory.readHistory();
+        this.csvReaderconAVL = new READERconAVL(csvPath);
+        this.reservations = csvReaderconAVL.readReservasCSV(csvPath);
+        this.roomHistory = csvReaderconAVL.readHistoricoCSV(csvPath);
     }
    
 
@@ -43,41 +43,43 @@ public class Hotel {
     }
     
     public ClientReservation searchReservationByCi(int ci) {    
-        BSTNode current = reservations.getRoot();
+        AVLNode current = reservations.getRoot();
         while (current != null) {
-            if (ci == current.getId()) {
+            int a = current.getKey();
+            if (ci == a) {
                 return (ClientReservation) current.getData();
-            } else if (ci < current.getId()) {
-                current = current.getLeftSon();
+            } else if (ci < a) {
+                current = current.getLeft();
             } else {
-                current = current.getRightSon();
+                current = current.getRight();
                 }
     }
-    return null; // Return null if the reservation with the given ID is not found
-} // @author Angel 
+    return null;
+}
     
     public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
-        BSTNode current = reservations.getRoot();
+        AVLNode current = roomHistory.getRoot();
         while (current != null) {
-            if (roomNumber == current.getId()) {
+            int a = current.getKey();
+            if (roomNumber == a) {
                 return (DynamicArray) current.getData();
-            } else if (roomNumber < current.getId()) {
-                current = current.getLeftSon();
+            } else if (roomNumber < a) {
+                current = current.getLeft();
             } else {
-                current = current.getRightSon();
+                current = current.getRight();
                 }
     }
-    return null; // Return null if the reservation with the given ID is not found
-} // @author Angel 
+    return null;
+}
     
     
     
     
-    /*
-    public String freeRoom(String roomType){
+    
+    //public String freeRoom(String roomType){
         
-        S
-        */
+    //}
+        
             
         }
 

@@ -54,9 +54,9 @@ public class AVLTree<T extends Comparable<T>> {
     private AVLNode<T> insert(AVLNode<T> node, T key) {
         if (node == null)
             return (new AVLNode<T>(key));
-        if (key.compareTo(node.key) < 0)
+        if (key.compareTo(node.data) < 0)
             node.left = insert(node.left, key);
-        else if (key.compareTo(node.key) > 0)
+        else if (key.compareTo(node.data) > 0)
             node.right = insert(node.right, key);
         else
             return node;
@@ -65,22 +65,31 @@ public class AVLTree<T extends Comparable<T>> {
 
         int balance = getBalance(node);
 
-        if (balance > 1 && key.compareTo(node.left.key) < 0)
+        if (balance > 1 && key.compareTo(node.left.data) < 0)
             return rightRotate(node);
 
-        if (balance < -1 && key.compareTo(node.right.key) > 0)
+        if (balance < -1 && key.compareTo(node.right.data) > 0)
             return leftRotate(node);
 
-        if (balance > 1 && key.compareTo(node.left.key) > 0) {
+        if (balance > 1 && key.compareTo(node.left.data) > 0) {
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
 
-        if (balance < -1 && key.compareTo(node.right.key) < 0) {
+        if (balance < -1 && key.compareTo(node.right.data) < 0) {
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
 
         return node;
     }
+
+    public AVLNode<T> getRoot() {
+        return root;
+    }
+
+    public void setRoot(AVLNode<T> root) {
+        this.root = root;
+    }
+    
 }
