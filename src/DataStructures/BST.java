@@ -64,6 +64,14 @@ public class BST<T> {
     public boolean isEmpty(){
         return root==null;
     }
+
+    public BSTNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(BSTNode root) {
+        this.root = root;
+    }
     
 }
 

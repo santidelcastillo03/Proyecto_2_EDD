@@ -22,4 +22,36 @@ public class BSTNode<T> {
         return name + "sus datos son: " + data;
     }
 
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public T getName() {
+        return name;
+    }
+
+    public void setName(T name) {
+        this.name = name;
+    }
+
+    public BSTNode getLeftSon() {
+        return leftSon;
+    }
+
+    public void setLeftSon(BSTNode leftSon) {
+        this.leftSon = leftSon;
+    }
+
+    public BSTNode getRightSon() {
+        return rightSon;
+    }
+
+    public void setRightSon(BSTNode rightSon) {
+        this.rightSon = rightSon;
+    }
+
 }
