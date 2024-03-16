@@ -4,8 +4,6 @@
  */
 package hotelbookingsystem;
 
-import DataStructures.BSTNode;
-
 /**
  *RESERVAS
  * @author Angel

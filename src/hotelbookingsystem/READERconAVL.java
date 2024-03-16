@@ -18,7 +18,7 @@ public class READERconAVL {
         this.historicoTree = new AVLTree<>();
     }
 
-    public void readHistoricoCSV(String path) {
+    public AVLTree<RoomHistory> readHistoricoCSV(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             br.readLine();
@@ -30,9 +30,10 @@ public class READERconAVL {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return historicoTree;
     }
 
-    public void readReservasCSV(String path) {
+    public AVLTree<ClientReservation> readReservasCSV(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             br.readLine(); 
@@ -44,5 +45,6 @@ public class READERconAVL {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return reservasTree;
     }
 }

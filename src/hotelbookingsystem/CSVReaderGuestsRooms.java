@@ -4,7 +4,6 @@
  */
 package hotelbookingsystem;
 
-import DataStructures.BST;
 import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 import java.io.BufferedReader;
@@ -17,13 +16,13 @@ import java.io.IOException;
  */
 public class CSVReaderGuestsRooms {
     private String path;
-    private BST allGuests;
-    private BST allRooms;
+    private DynamicArray<Guest> allGuests;
+    private DynamicArray<Room> allRooms;
 
     public CSVReaderGuestsRooms(String path) {
         this.path = path;
-        this.allGuests = new BST();
-        this.allRooms = new BST();
+        this.allGuests = new DynamicArray();
+        this.allRooms = new DynamicArray();
     }
    
     
@@ -45,7 +44,7 @@ public class CSVReaderGuestsRooms {
                 }
                 if (room != null) {
                     Guest info = new Guest(values[1], values[2], room, values[3], values[4], values[5], values[6]);
-                    allGuests.addNode(Integer.parseInt(room.getID()), info);
+                    allGuests.add(info);
                     String key = values[1] + " " + values[2];
                     clients.put(key, info);
                 }
@@ -79,7 +78,7 @@ public class CSVReaderGuestsRooms {
                 String type = values[1];
                 String level = values[2];
                 Room room = new Room(ID, type, level);
-                allRooms.addNode(Integer.parseInt(ID), room);
+                allRooms.add(room);
                 rooms.put(ID,room);
             }
     }catch (IOException e) {
@@ -103,19 +102,19 @@ public class CSVReaderGuestsRooms {
         this.path = path;
     }
 
-    public BST getAllGuests() {
+    public DynamicArray<Guest> getAllGuests() {
         return allGuests;
     }
 
-    public void setAllGuests(BST allGuests) {
+    public void setAllGuests(DynamicArray<Guest>  allGuests) {
         this.allGuests = allGuests;
     }
 
-    public BST getAllRooms() {
+    public  DynamicArray<Room>  getAllRooms() {
         return allRooms;
     }
 
-    public void setAllRooms(BST allRooms) {
+    public void setAllRooms(DynamicArray<Room>  allRooms) {
         this.allRooms = allRooms;
     }
 }
