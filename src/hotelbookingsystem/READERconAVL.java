@@ -37,7 +37,7 @@ public class READERconAVL {
                 } else{
                     DynamicArray<RoomHistory> prevGuests = new DynamicArray();
                     prevGuests.add(roomHistory);
-                    historicoTree.addNode(Integer.parseInt(values[6]), prevGuests);
+                    historicoTree.addLeaf(Integer.parseInt(values[6]), prevGuests);
                 }
             }
         } catch (IOException e) {
@@ -54,7 +54,7 @@ public class READERconAVL {
                 String[] values = line.split(",");
                 int key = checkCi(values[0]);
                 ClientReservation clientReservation = new ClientReservation(values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8]);
-                reservasTree.addNode(key, clientReservation);
+                reservasTree.addLeaf(key, clientReservation);
             }
         } catch (IOException e) {
             e.printStackTrace();
