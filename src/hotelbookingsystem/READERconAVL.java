@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class READERconAVL {
     private AVLTree<ClientReservation> reservasTree;
-    private AVLTree<RoomHistory> historicoTree;
+    private AVLTree<DynamicArray<RoomHistory>> historicoTree;
 
     public READERconAVL() {
         this.reservasTree = new AVLTree<>();
@@ -24,9 +24,10 @@ public class READERconAVL {
         try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - Histórico.csv"))) {
             String line;
             br.readLine();
+            int i = 0;
             while ((line = br.readLine()) != null) {
+                i++;
                 String[] values = line.split(",");
-                System.out.println("hola");
                 RoomHistory roomHistory = new RoomHistory(values[0], values[1], values[2], values[3], values[4], values[5], Integer.parseInt(values[6]));
                 
                 AVLNode nodeExistsAlready = historicoTree.search(Integer.parseInt(values[6]));
@@ -35,7 +36,8 @@ public class READERconAVL {
                     a.add(roomHistory);
                 } else{
                     DynamicArray<RoomHistory> prevGuests = new DynamicArray();
-                    historicoTree.addNode(Integer.parseInt(values[6]), roomHistory);
+                    prevGuests.add(roomHistory);
+                    historicoTree.addNode(Integer.parseInt(values[6]), prevGuests);
                 }
             }
         } catch (IOException e) {
