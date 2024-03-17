@@ -42,35 +42,35 @@ public class Hotel {
         return client != null ? client.getRoom().getID() : null;
     }
     
-//    public ClientReservation searchReservationByCi(int ci) {    
-//        AVLNode current = reservations.getRoot();
-//        while (current != null) {
-//            int a = current.getKey();
-//            if (ci == a) {
-//                return (ClientReservation) current.getData();
-//            } else if (ci < a) {
-//                current = current.getLeft();
-//            } else {
-//                current = current.getRight();
-//                }
-//    }
-//    return null;
-//}
-//    
-//    public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
-//        AVLNode current = roomHistory.getRoot();
-//        while (current != null) {
-//            int a = current.getKey();
-//            if (roomNumber == a) {
-//                return (DynamicArray) current.getData();
-//            } else if (roomNumber < a) {
-//                current = current.getLeft();
-//            } else {
-//                current = current.getRight();
-//                }
-//    }
-//    return null;
-//}
+    public ClientReservation searchReservationByCi(int ci) {    
+        AVLNode current = reservations.getRoot();
+        while (current != null) {
+            int a = current.getKey();
+            if (ci == a) {
+                return (ClientReservation) current.getData();
+            } else if (ci < a) {
+                current = current.getLeft();
+            } else {
+                current = current.getRight();
+                }
+    }
+    return null;
+}
+    
+    public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
+        AVLNode current = roomHistory.getRoot();
+        while (current != null) {
+            int a = current.getKey();
+            if (roomNumber == a) {
+                return (DynamicArray) current.getData();
+            } else if (roomNumber < a) {
+                current = current.getLeft();
+            } else {
+                current = current.getRight();
+                }
+    }
+    return null;
+}
     
     
     
