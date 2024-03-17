@@ -20,7 +20,7 @@ public class READERconAVL {
         this.historicoTree = new AVLTree<>();
     }
 
-    public AVLTree<RoomHistory> readHistoricoCSV() {
+    public AVLTree<DynamicArray<RoomHistory>> readHistoricoCSV() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - Histórico.csv"))) {
             String line;
             br.readLine();
@@ -65,5 +65,9 @@ public class READERconAVL {
     public int checkCi(String ci) {
         String checkCi = ci.replace(".", "");
         return Integer.parseInt(checkCi);
+    }
+    
+    public void printAVL() {
+        
     }
 }

@@ -18,7 +18,7 @@ public class Hotel {
     private CSVReaderGuestsRooms csvReaderGuestsRooms;
     private READERconAVL csvReaderconAVL;
     private AVLTree<ClientReservation> reservations;
-    private AVLTree<RoomHistory> roomHistory;
+    private AVLTree<DynamicArray<RoomHistory>> roomHistory;
     
 
     public Hotel() {

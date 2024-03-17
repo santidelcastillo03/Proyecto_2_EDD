@@ -8,7 +8,7 @@ package DataStructures;
  *
  * @author santiagodelcastillo
  */
-public class AVLNode<T extends Comparable<T>> {
+public class AVLNode<T> {
     int key;
     T data;
     int height;

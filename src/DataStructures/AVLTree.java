@@ -8,7 +8,7 @@ package DataStructures;
  *
  * @author santiagodelcastillo
  */
-public class AVLTree<T extends Comparable<T>> {
+public class AVLTree<T> {
     private AVLNode<T> root;
 
     private int height(AVLNode<T> N) {
@@ -53,7 +53,7 @@ public class AVLTree<T extends Comparable<T>> {
 
     private AVLNode<T> insert(AVLNode<T> node, int key, T data) {
         if (node == null){
-            return (new AVLNode<T>(key, data));
+            return new AVLNode(key, data);
         }
         if (key < 0){
             node.left = insert(node.left, key, data);
