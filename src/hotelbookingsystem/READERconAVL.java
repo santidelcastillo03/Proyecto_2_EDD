@@ -66,8 +66,6 @@ public class READERconAVL {
         String checkCi = ci.replace(".", "");
         return Integer.parseInt(checkCi);
     }
-    
-    public void printAVL() {
-        
-    }
+
+   
 }

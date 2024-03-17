@@ -5,6 +5,7 @@
 package hotelbookingsystem;
 
 import DataStructures.DynamicArray;
+import UI.Menu;
 
 /**
  *
@@ -16,6 +17,7 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Menu ui = new Menu();
         Hotel hotel = new Hotel();
         READERconAVL r = new READERconAVL();
         
