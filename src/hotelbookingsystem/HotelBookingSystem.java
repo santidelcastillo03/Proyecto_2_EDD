@@ -14,9 +14,8 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
-        );
-        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms("src/CSVFiles/Booking_hotel - estado.csv");
+        Hotel hotel = new Hotel();
+        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms();
         csvr.PrintEstado();
         csvr.printRooms();
         String roomID = hotel.checkGuest("Diane","Devote");

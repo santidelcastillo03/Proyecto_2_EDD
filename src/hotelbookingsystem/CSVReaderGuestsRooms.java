@@ -19,7 +19,7 @@ public class CSVReaderGuestsRooms {
     private DynamicArray<Guest> allGuests;
     private DynamicArray<Room> allRooms;
 
-    public CSVReaderGuestsRooms(String path) {
+    public CSVReaderGuestsRooms() {
         this.path = path;
         this.allGuests = new DynamicArray();
         this.allRooms = new DynamicArray();

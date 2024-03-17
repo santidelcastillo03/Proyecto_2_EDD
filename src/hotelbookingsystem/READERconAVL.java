@@ -13,18 +13,20 @@ import java.io.IOException;
 
 public class READERconAVL {
     private AVLTree<ClientReservation> reservasTree;
-    private AVLTree<RoomHistory> historicoTree;
+    private AVLTree<DynamicArray<RoomHistory>> historicoTree;
 
-    public READERconAVL(String path) {
+    public READERconAVL() {
         this.reservasTree = new AVLTree<>();
         this.historicoTree = new AVLTree<>();
     }
 
-    public AVLTree<RoomHistory> readHistoricoCSV(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    public AVLTree<RoomHistory> readHistoricoCSV() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - Histórico.csv"))) {
             String line;
             br.readLine();
+            int i = 0;
             while ((line = br.readLine()) != null) {
+                i++;
                 String[] values = line.split(",");
                 RoomHistory roomHistory = new RoomHistory(values[0], values[1], values[2], values[3], values[4], values[5], Integer.parseInt(values[6]));
                 
@@ -34,7 +36,8 @@ public class READERconAVL {
                     a.add(roomHistory);
                 } else{
                     DynamicArray<RoomHistory> prevGuests = new DynamicArray();
-                    historicoTree.addNode(Integer.parseInt(values[6]), roomHistory);
+                    prevGuests.add(roomHistory);
+                    historicoTree.addNode(Integer.parseInt(values[6]), prevGuests);
                 }
             }
         } catch (IOException e) {
@@ -43,36 +46,24 @@ public class READERconAVL {
         return historicoTree;
     }
 
-    public AVLTree<ClientReservation> readReservasCSV(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    public AVLTree<ClientReservation> readReservasCSV() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - reservas.csv"))) {
             String line;
             br.readLine(); 
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                System.out.println("->");
-                System.out.println(values[0]);
-                System.out.println("->");
-                System.out.println(values[1]);
-                System.out.println("->");
-                System.out.println(values[2]);
-                System.out.println("->");
-                System.out.println(values[3]);
-                System.out.println("->");
-                System.out.println(values[4]);
-                System.out.println("->");
-                System.out.println(values[5]);
-                System.out.println("->");
-                System.out.println(values[6]);
-                System.out.println("->");
-                System.out.println(values[7]);
-                System.out.println("->");
-                System.out.println(values[8]);
+                int key = checkCi(values[0]);
                 ClientReservation clientReservation = new ClientReservation(values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8]);
-                reservasTree.addNode(Integer.parseInt(values[0]), clientReservation);
+                reservasTree.addNode(key, clientReservation);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return reservasTree;
+    }
+    
+    public int checkCi(String ci) {
+        String checkCi = ci.replace(".", "");
+        return Integer.parseInt(checkCi);
     }
 }
