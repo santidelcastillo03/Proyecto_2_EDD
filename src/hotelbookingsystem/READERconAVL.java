@@ -13,7 +13,7 @@ public class READERconAVL {
     private AVLTree<ClientReservation> reservasTree;
     private AVLTree<RoomHistory> historicoTree;
 
-    public READERconAVL(String path) {
+    public READERconAVL() {
         this.reservasTree = new AVLTree<>();
         this.historicoTree = new AVLTree<>();
     }

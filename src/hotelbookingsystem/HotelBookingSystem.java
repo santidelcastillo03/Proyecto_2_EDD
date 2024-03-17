@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package hotelbookingsystem;
-
 /**
  *
  * @author Santiago
@@ -14,8 +13,7 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
-        );
+        Hotel hotel = new Hotel();
         CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms("src/CSVFiles/Booking_hotel - estado.csv");
         csvr.PrintEstado();
         csvr.printRooms();
