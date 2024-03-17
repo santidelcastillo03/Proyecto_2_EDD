@@ -4,9 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="locationByPlatform" type="boolean" value="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1000, 600]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -84,12 +81,10 @@
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="BTNCHECKOUT" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="BTNCHECKIN" max="32767" attributes="0"/>
-                              <Component id="BTNROOMHISTORY" max="32767" attributes="0"/>
-                              <Component id="BTNSEARCHRESERVATION" max="32767" attributes="0"/>
-                              <Component id="BTNSEARCHCLIENT" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="BTNCHECKIN" max="32767" attributes="0"/>
+                          <Component id="BTNROOMHISTORY" max="32767" attributes="0"/>
+                          <Component id="BTNSEARCHRESERVATION" max="32767" attributes="0"/>
+                          <Component id="BTNSEARCHCLIENT" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
@@ -155,6 +150,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TXTSEARCHCLIENTMouseClicked"/>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TXTSEARCHCLIENTMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TXTSEARCHCLIENTMouseExited"/>
                   </Events>

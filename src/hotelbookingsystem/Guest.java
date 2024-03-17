@@ -83,7 +83,7 @@ public class Guest {
         this.room = room;
     }
     
-    
+  
     
     @Override
     public String toString() {

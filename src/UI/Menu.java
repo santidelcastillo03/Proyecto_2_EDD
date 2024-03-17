@@ -58,7 +58,6 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,6 +79,9 @@ public class Menu extends javax.swing.JFrame {
         TXTSEARCHCLIENT.setText("Search Client");
         TXTSEARCHCLIENT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTSEARCHCLIENT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTSEARCHCLIENTMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTSEARCHCLIENTMouseEntered(evt);
             }
@@ -221,11 +223,10 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(BTNCHECKOUT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BTNCHECKIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNROOMHISTORY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNSEARCHRESERVATION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNSEARCHCLIENT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(BTNCHECKIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNROOMHISTORY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNSEARCHRESERVATION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNSEARCHCLIENT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
         BARLayout.setVerticalGroup(
@@ -356,6 +357,10 @@ public class Menu extends javax.swing.JFrame {
     private void TXTCHECKOUTMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTCHECKOUTMouseExited
         BTNCHECKOUT.setBackground(new Color(0,67,67));
     }//GEN-LAST:event_TXTCHECKOUTMouseExited
+
+    private void TXTSEARCHCLIENTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTSEARCHCLIENTMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXTSEARCHCLIENTMouseClicked
 
     /**
      * @param args the command line arguments

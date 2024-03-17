@@ -8,7 +8,7 @@ package hotelbookingsystem;
  *RESERVAS
  * @author Angel
  */
-public class ClientReservation implements Comparable<ClientReservation>{
+public class ClientReservation{
     private String ci;
     private String firstName;
     private String lastName;
@@ -124,10 +124,7 @@ public class ClientReservation implements Comparable<ClientReservation>{
         this.checkOut = checkOut;
     }
 
-@Override
-public int compareTo(ClientReservation other) {
-    return this.ci.compareTo(other.ci);
-}
+
     @Override
     public String toString() {
         return "CI: " + ci + " /First Name: " + firstName + " /Last Name: " + lastName + " /Email: " + email + " /Gender: " + gender

@@ -15,9 +15,6 @@ public class HotelBookingSystem {
      */
     public static void main(String[] args) {
         Hotel hotel = new Hotel();
-        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms();
-        csvr.PrintEstado();
-        csvr.printRooms();
         String roomID = hotel.checkGuest("Diane","Devote");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
