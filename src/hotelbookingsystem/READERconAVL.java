@@ -13,19 +13,19 @@ public class READERconAVL {
     private AVLTree<ClientReservation> reservasTree;
     private AVLTree<RoomHistory> historicoTree;
 
-    public READERconAVL(String path) {
+    public READERconAVL() {
         this.reservasTree = new AVLTree<>();
         this.historicoTree = new AVLTree<>();
     }
 
-    public AVLTree<RoomHistory> readHistoricoCSV(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    public AVLTree<RoomHistory> readHistoricoCSV() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - Histórico.csv"))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 RoomHistory roomHistory = new RoomHistory(values[0], values[1], values[2], values[3], values[4], values[5], Integer.parseInt(values[6]));
-                historicoTree.insert(roomHistory);
+                historicoTree.addNode(Integer.parseInt(values[0]),roomHistory);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,14 +33,14 @@ public class READERconAVL {
         return historicoTree;
     }
 
-    public AVLTree<ClientReservation> readReservasCSV(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+    public AVLTree<ClientReservation> readReservasCSV() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - reservas.csv"))) {
             String line;
             br.readLine(); 
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 ClientReservation clientReservation = new ClientReservation(values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8]);
-                reservasTree.insert(clientReservation);
+                reservasTree.addNode(Integer.parseInt(values[0]),clientReservation);
             }
         } catch (IOException e) {
             e.printStackTrace();

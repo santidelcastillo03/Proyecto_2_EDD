@@ -47,36 +47,42 @@ public class AVLTree<T extends Comparable<T>> {
         return height(N.left) - height(N.right);
     }
 
-    public void insert(T key) {
-        root = insert(root, key);
+    public void addNode(int key, T data) {
+        root = insert(root, key, data);
     }
 
-    private AVLNode<T> insert(AVLNode<T> node, T key) {
-        if (node == null)
-            return (new AVLNode<T>(key));
-        if (key.compareTo(node.data) < 0)
-            node.left = insert(node.left, key);
-        else if (key.compareTo(node.data) > 0)
-            node.right = insert(node.right, key);
-        else
+    private AVLNode<T> insert(AVLNode<T> node, int key, T data) {
+        if (node == null){
+            return (new AVLNode<T>(key, data));
+        }
+        if (key < 0){
+            node.left = insert(node.left, key, data);
+        }
+        else if (key > 0){
+            node.right = insert(node.right, key, data);
+        }
+        else{
             return node;
+        }
 
         node.height = 1 + max(height(node.left), height(node.right));
 
         int balance = getBalance(node);
 
-        if (balance > 1 && key.compareTo(node.left.data) < 0)
+        if (balance > 1 && key < 0){
             return rightRotate(node);
+        }
 
-        if (balance < -1 && key.compareTo(node.right.data) > 0)
+        if (balance < -1 && key > 0){
             return leftRotate(node);
+        }
 
-        if (balance > 1 && key.compareTo(node.left.data) > 0) {
+        if (balance > 1 && key > 0) {
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
 
-        if (balance < -1 && key.compareTo(node.right.data) < 0) {
+        if (balance < -1 && key < 0) {
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
@@ -91,5 +97,19 @@ public class AVLTree<T extends Comparable<T>> {
     public void setRoot(AVLNode<T> root) {
         this.root = root;
     }
+    
+    public AVLNode<T> search(int key) {
+    AVLNode<T> current = root;
+    while (current != null) {
+        if (key < current.key) {
+            current = current.left;
+        } else if (key > current.key) {
+            current = current.right;
+        } else {
+            return current;
+        }
+    }
+    return null;
+}
     
 }

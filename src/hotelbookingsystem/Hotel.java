@@ -21,13 +21,13 @@ public class Hotel {
     private AVLTree<RoomHistory> roomHistory;
     
 
-    public Hotel(int size, String csvPath) {
-        this.currentGuests = new HashTable<>(size);
-        this.csvReaderGuestsRooms = new CSVReaderGuestsRooms(csvPath);
+    public Hotel() {
+        this.currentGuests = new HashTable<>(100);
+        this.csvReaderGuestsRooms = new CSVReaderGuestsRooms();
         this.currentGuests = csvReaderGuestsRooms.readGuests();
-        this.csvReaderconAVL = new READERconAVL(csvPath);
-        this.reservations = csvReaderconAVL.readReservasCSV(csvPath);
-        this.roomHistory = csvReaderconAVL.readHistoricoCSV(csvPath);
+        this.csvReaderconAVL = new READERconAVL();
+        this.reservations = csvReaderconAVL.readReservasCSV();
+        this.roomHistory = csvReaderconAVL.readHistoricoCSV();
     }
    
 
@@ -42,36 +42,35 @@ public class Hotel {
         return client != null ? client.getRoom().getID() : null;
     }
     
-    public ClientReservation searchReservationByCi(int ci) {    
-        AVLNode current = reservations.getRoot();
-        while (current != null) {
-            int a = current.getKey();
-            if (ci == a) {
-                return (ClientReservation) current.getData();
-            } else if (ci < a) {
-                current = current.getLeft();
-            } else {
-                current = current.getRight();
-                }
-    }
-    return null;
-}
-    
-    public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
-        AVLNode current = roomHistory.getRoot();
-        while (current != null) {
-            int a = current.getKey();
-            if (roomNumber == a) {
-                return (DynamicArray) current.getData();
-            } else if (roomNumber < a) {
-                current = current.getLeft();
-            } else {
-                current = current.getRight();
-                }
-    }
-    return null;
-}
-    
+//    public ClientReservation searchReservationByCi(int ci) {    
+//        AVLNode current = reservations.getRoot();
+//        while (current != null) {
+//            int a = current.getKey();
+//            if (ci == a) {
+//                return (ClientReservation) current.getData();
+//            } else if (ci < a) {
+//                current = current.getLeft();
+//            } else {
+//                current = current.getRight();
+//                }
+//    }
+//    return null;
+//}
+//    
+//    public DynamicArray<RoomHistory> searchHistoryByRoom(int roomNumber) {    
+//        AVLNode current = roomHistory.getRoot();
+//        while (current != null) {
+//            int a = current.getKey();
+//            if (roomNumber == a) {
+//                return (DynamicArray) current.getData();
+//            } else if (roomNumber < a) {
+//                current = current.getLeft();
+//            } else {
+//                current = current.getRight();
+//                }
+//    }
+//    return null;
+//}
     
     
     
