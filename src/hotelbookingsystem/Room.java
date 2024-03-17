@@ -8,7 +8,7 @@ package hotelbookingsystem;
  *
  * @author santiagodelcastillo
  */
-public class Room {
+public class Room implements Comparable<Room> {
     private String ID;
     private String type;
     private String level;
@@ -44,7 +44,12 @@ public class Room {
     }
     
     @Override
-public String toString() {
-    return "Room ID: " + getID() + ", Type: " + getType() + ", Level: " + getLevel();
-}
+    public String toString() {
+        return "Room ID: " + getID() + ", Type: " + getType() + ", Level: " + getLevel();
+    }
+
+  @Override
+    public int compareTo(Room other) {
+        return this.ID.compareTo(other.ID);
+    }
 }

@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package hotelbookingsystem;
+
+import DataStructures.DynamicArray;
+import UI.Menu;
+
 /**
  *
  * @author Santiago
@@ -13,17 +17,25 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Menu ui = new Menu();
         Hotel hotel = new Hotel();
-        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms("src/CSVFiles/Booking_hotel - estado.csv");
-        csvr.PrintEstado();
-        csvr.printRooms();
+        READERconAVL r = new READERconAVL();
+        
         String roomID = hotel.checkGuest("Diane","Devote");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
         } else {
             System.out.println("Client not found");
         }
+        
+//        DynamicArray<RoomHistory> a = hotel.searchHistoryByRoom(1);
+//       
+//        for (RoomHistory p : a) {
+//            System.out.println(p.getName());
+//        }
        
+
+        System.out.println(hotel.searchReservationByCi(17153797));
     }
     
 }

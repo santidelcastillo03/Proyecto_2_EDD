@@ -8,16 +8,27 @@ package DataStructures;
  *
  * @author santiagodelcastillo
  */
-public class AVLNode<T extends Comparable<T>> {
+public class AVLNode<T> {
+    int key;
     T data;
     int height;
     AVLNode<T> left, right;
 
-    public AVLNode(T key) {
-        this.data = key;
+    public AVLNode(int key, T data) {
+        this.key = key;
+        this.data = data;
         this.height = 1;
     }
 
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    
     public T getData() {
         return data;
     }
