@@ -22,8 +22,7 @@ public class AVLTree<T> {
     }
 
     private AVLNode<T> rightRotate(AVLNode<T> node) {
-        System.out.println("der");
-        System.out.println("el nodo derecho guia es: " +node);
+       
     if (node.getLeft() == null) {
         // Perform a single rotation
         return node.getRight();
@@ -38,8 +37,7 @@ public class AVLTree<T> {
 }
 
 private AVLNode<T> leftRotate(AVLNode<T> node) {
-    System.out.println("izq");
-    System.out.println("el nodo izq guia es: " +node);
+   
     if (node.getRight() == null) {
         // Perform a single rotation
         return node.getLeft();
@@ -90,12 +88,9 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     private AVLNode<T> rotate(AVLNode<T> node){
 
         int balance = getBalance(node);
-        System.out.println("balance: " + balance);
 
         if (balance > 1){
-            System.out.println("r" +" ->\n");
             if (getBalance(node.getLeft()) < 0){
-                System.out.println("rl" +" ->\n");
                 node.setLeft(leftRotate(node.getLeft()));
             }
             
@@ -103,10 +98,7 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         }
 
         if (balance < -1){
-            System.out.println("l" +" ->\n");
-            System.out.println("balance nodo der: " + getBalance(node.getRight()));
             if (getBalance(node.getRight()) > 0){
-                System.out.println("lr" +" ->\n");
                 node.setRight(rightRotate(node.getRight()));
             }
            

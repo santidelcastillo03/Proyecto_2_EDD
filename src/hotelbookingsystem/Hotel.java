@@ -81,9 +81,10 @@ public class Hotel {
         HashTable<String, Guest> roomsOccupied = currentGuestsRoom; 
         HashTable<String, Room> freeRooms = csvReaderGuestsRooms.readRooms(); 
         for (String room : freeRooms.keys()){
-            if(roomsOccupied.get(room).equals(true)){
+            Guest occupiedRoomGuest = roomsOccupied.get(room);//CHANGE
+            if(occupiedRoomGuest != null && occupiedRoomGuest.equals(true)){
                 freeRooms.removeNode(room);
-            }          
+            }         
         }
         for (String room : freeRooms.keys()){
             Room possibleRoom = freeRooms.get(room);
@@ -96,7 +97,9 @@ public class Hotel {
             }
             
         }
-        
+        CSVWriter writer = new CSVWriter();
+        writer.updateEstado(currentGuestsName);
+
         
     }
     
@@ -111,7 +114,9 @@ public class Hotel {
                 id.insert(0, '.');
                 counter = 0;
             }
-            id.insert(0, id.charAt(i));
+            if (i < id.length()) {
+                id.insert(0, id.charAt(i));//Change
+            }
             counter++;
         }
         RoomHistory prevGuest = new RoomHistory(id.toString(), guest.getName(), guest.getLastName(), guest.getEmail(), guest.getGender(), guest.getArrival(), roomNum);
@@ -124,8 +129,11 @@ public class Hotel {
                     prevGuests.add(prevGuest);
                     roomHistory.addLeaf(roomNum, prevGuests);
                 }
-                currentGuestsName.removeNode(Integer.toString(ci));
+                String fullName = guest.getName() +" "+ guest.getLastName();
+                currentGuestsName.removeNode(fullName);
                 currentGuestsRoom.removeNode(Integer.toString(roomNum));
+                CSVWriter writer = new CSVWriter();
+                writer.updateEstado(currentGuestsName);
             }
         
     }
