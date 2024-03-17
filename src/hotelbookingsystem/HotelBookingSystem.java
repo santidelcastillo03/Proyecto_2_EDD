@@ -28,14 +28,14 @@ public class HotelBookingSystem {
             System.out.println("Client not found");
         }
         
-//        DynamicArray<RoomHistory> a = hotel.searchHistoryByRoom(1);
-//       
-//        for (RoomHistory p : a) {
-//            System.out.println(p.getName());
-//        }
+        DynamicArray<RoomHistory> a = (DynamicArray) hotel.searchHistoryByRoom(1).getData();
+       
+        for (RoomHistory p : a) {
+            System.out.println(p.getName());
+        }
        
 
-        System.out.println(hotel.searchReservationByCi(17153797));
+        System.out.println(hotel.searchReservationByCi(17153797).getData());
     }
     
 }

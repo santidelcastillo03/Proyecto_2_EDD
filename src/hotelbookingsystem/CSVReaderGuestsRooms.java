@@ -15,18 +15,20 @@ import java.io.IOException;
  * @author santiagodelcastillo
  */
 public class CSVReaderGuestsRooms {
-    private String path;
+    private String pathGuests;
+    private String pathRooms;
     private DynamicArray<Guest> allGuests;
     private DynamicArray<Room> allRooms;
 
     public CSVReaderGuestsRooms() {
-        this.path = path;
+        this.pathGuests = pathGuests;
+        this.pathRooms = pathRooms;
         this.allGuests = new DynamicArray();
         this.allRooms = new DynamicArray();
     }
    
     
-     public HashTable<String, Guest> readGuests() {
+     public HashTable<String, Guest> readGuestsCI() {
         HashTable<String, Guest> clients = new HashTable<>(100);
         HashTable<String,Room> rooms = readRooms();
         String line;
@@ -54,6 +56,34 @@ public class CSVReaderGuestsRooms {
         }
         return clients;
     }
+     
+    public HashTable<String, Guest> readGuestsRoom() {
+        HashTable<String, Guest> clients = new HashTable<>(100);
+        HashTable<String,Room> rooms = readRooms();
+        String line;
+        Room previousRoom = null;
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - estado.csv"))) {
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values= line.split(",");
+                Room room;
+                if (values[0] != null && !values[0].isEmpty()) {
+                    room = rooms.get(values[0]);
+                    previousRoom = room;
+                }else {
+                    room = previousRoom;
+                }
+                if (room != null) {
+                    Guest info = new Guest(values[1], values[2], room, values[3], values[4], values[5], values[6]);
+                    String key = room.getID();
+                    clients.put(key, info);
+                }
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return clients;
+    }
 
     public void printHashTable(HashTable<String, Guest> table) {
         for (String key : table.keys()) {
@@ -62,7 +92,7 @@ public class CSVReaderGuestsRooms {
     }
 
     public void PrintEstado() {
-        HashTable<String, Guest> clients = readGuests();
+        HashTable<String, Guest> clients = readGuestsCI();
         printHashTable(clients);
         System.out.println(clients.getSize());
     }
@@ -94,12 +124,12 @@ public class CSVReaderGuestsRooms {
     }
 }
 
-    public String getPath() {
-        return path;
+    public String getPathGuests() {
+        return pathGuests;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPathGuests(String pathGuests) {
+        this.pathGuests = pathGuests;
     }
 
     public DynamicArray<Guest> getAllGuests() {
