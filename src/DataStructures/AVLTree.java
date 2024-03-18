@@ -21,25 +21,35 @@ public class AVLTree<T> {
         return (a > b) ? a : b;
     }
 
-    private AVLNode<T> rightRotate(AVLNode<T> y) {
-        AVLNode<T> x = y.left;
-        AVLNode<T> T2 = x.right;
-        x.right = y;
-        y.left = T2;
-        y.height = max(height(y.left), height(y.right)) + 1;
-        x.height = max(height(x.left), height(x.right)) + 1;
-        return x;
+    private AVLNode<T> rightRotate(AVLNode<T> node) {
+       
+    if (node.getLeft() == null) {
+        // Perform a single rotation
+        return node.getRight();
     }
+    AVLNode<T> l = node.getLeft();
+    AVLNode<T> c = l.getRight();
+    l.setRight(node);
+    node.setLeft(c);
+    updateHeight(node);
+    updateHeight(l);
+    return l;
+}
 
-    private AVLNode<T> leftRotate(AVLNode<T> x) {
-        AVLNode<T> y = x.right;
-        AVLNode<T> T2 = y.left;
-        y.left = x;
-        x.right = T2;
-        x.height = max(height(x.left), height(x.right)) + 1;
-        y.height = max(height(y.left), height(y.right)) + 1;
-        return y;
+private AVLNode<T> leftRotate(AVLNode<T> node) {
+   
+    if (node.getRight() == null) {
+        // Perform a single rotation
+        return node.getLeft();
     }
+    AVLNode<T> r = node.getRight();
+    AVLNode<T> c = r.getLeft();
+    r.setLeft(node);
+    node.setRight(c);
+    updateHeight(node);
+    updateHeight(r);
+    return r;
+}
 
     private int getBalance(AVLNode<T> N) {
         if (N == null)
@@ -47,46 +57,53 @@ public class AVLTree<T> {
         return height(N.left) - height(N.right);
     }
 
-    public void addNode(int key, T data) {
-        root = insert(root, key, data);
+    public void addLeaf(int key, T data) {
+        root = insert(this.root, key, data);
     }
 
-    private AVLNode<T> insert(AVLNode<T> node, int key, T data) {
+    private AVLNode<T> insert(AVLNode<T> node, int key, T data){
         if (node == null){
-            return new AVLNode(key, data);
+            AVLNode<T> a = new AVLNode(key, data);
+            return a;
         }
-        if (key < 0){
-            node.left = insert(node.left, key, data);
+        if (key < node.key){
+            node.setLeft(insert(node.getLeft(), key, data));
         }
-        else if (key > 0){
-            node.right = insert(node.right, key, data);
-        }
-        else{
+        else if (key > node.key){
+            node.setRight(insert(node.getRight(), key, data));
+        }else{
             return node;
         }
-
-        node.height = 1 + max(height(node.left), height(node.right));
+        updateHeight(node);
+        return rotate(node);
+    }
+    
+    private void updateHeight(AVLNode<T> node){
+        int a = height(node.getLeft());
+        int b = height(node.getRight());
+        int maxHeight = Math.max(a, b);
+        node.setHeight(maxHeight +1);
+    }
+    
+    private AVLNode<T> rotate(AVLNode<T> node){
 
         int balance = getBalance(node);
 
-        if (balance > 1 && key < 0){
-            return rightRotate(node);
+        if (balance > 1){
+            if (getBalance(node.getLeft()) < 0){
+                node.setLeft(leftRotate(node.getLeft()));
+            }
+            
+           return rightRotate(node);
         }
 
-        if (balance < -1 && key > 0){
-            return leftRotate(node);
+        if (balance < -1){
+            if (getBalance(node.getRight()) > 0){
+                node.setRight(rightRotate(node.getRight()));
+            }
+           
+           return leftRotate(node);
         }
-
-        if (balance > 1 && key > 0) {
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        if (balance < -1 && key < 0) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
         return node;
     }
 
@@ -111,5 +128,42 @@ public class AVLTree<T> {
     }
     return null;
 }
+    
+    public void delete(int key, T data) {
+        root = deleteNode(root, key, data);
+    }
+
+    private AVLNode<T> deleteNode(AVLNode<T> node, int key, T data){
+        if (node == null){
+            return null;
+        }
+        if (key < node.key){
+            node.setLeft(deleteNode(node.getLeft(), key, data));
+        }
+        else if (key > node.key){
+            node.setRight(deleteNode(node.getRight(), key, data));
+        }else{
+            if (node.left == null || node.right == null) {
+                AVLNode temp = (node.left != null) ? node.left : node.right;
+                if (temp == null)
+                    temp = node;
+                node = null;
+                return temp;
+        }
+            AVLNode temp = minValueNode(node.right);
+            node.key = temp.key;
+            node.right = deleteNode(node.right, temp.key, (T) temp.getData());
+        }
+        updateHeight(node);
+        return rotate(node);
+    }
+    
+    public AVLNode minValueNode(AVLNode node) {
+        AVLNode current = node;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current;
+    }
     
 }

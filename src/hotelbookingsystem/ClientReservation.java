@@ -32,8 +32,6 @@ public class ClientReservation{
         this.phoneNum = phoneNum;
         this.arrival = arrival;
         this.departure = departure;
-        this.checkIn = false;
-        this.checkOut = false;
     }
 
     public String getCi() {
@@ -106,22 +104,6 @@ public class ClientReservation{
 
     public void setDeparture(String departure) {
         this.departure = departure;
-    }
-
-    public boolean isCheckIn() {
-        return checkIn;
-    }
-
-    public void setCheckIn(boolean checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public boolean isCheckOut() {
-        return checkOut;
-    }
-
-    public void setCheckOut(boolean checkOut) {
-        this.checkOut = checkOut;
     }
 
 
