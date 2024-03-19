@@ -76,5 +76,7 @@ public class CSVWriter {
             e.printStackTrace();
         }
     }
+    
+    //Arreglar rservas que no eleimina en el csv a la persona y arreglar ci en historico csv
 
 }
