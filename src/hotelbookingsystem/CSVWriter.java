@@ -54,28 +54,48 @@ public class CSVWriter {
         }
     }
     
-    public void updateReservas(AVLTree<ClientReservation> reservationsTree) {
-    try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv")) {
-      writer.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+//    public void updateReservas(AVLTree<ClientReservation> reservationsTree) {
+//    try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv")) {
+//      writer.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+//
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    }
+//
+//    try {
+//        reservationsTree.inOrderTraversal(this::writeClientReservations);
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+//    }
 
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+    public void updateReservas(AVLTree<ClientReservation> reservationsTree, String nameToRemove) {
+        try {
+            FileWriter clearWriter = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv");
+            clearWriter.write("");
+            clearWriter.close();
 
-    try {
-        reservationsTree.inOrderTraversal(this::writeClientReservations);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    }   
-
-    private void writeClientReservations(ClientReservation clientReservation) {
-        try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv", true)) {
-            writer.append(clientReservation.toString()).append('\n');
+            FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv", true);
+            writer.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+            reservationsTree.inOrderTraversal(node -> {
+                ClientReservation reservation = node;
+                String fullName = reservation.getFirstName() + "," + reservation.getLastName();
+                if (!fullName.equals(nameToRemove)) {
+                    try {
+                        writer.write(reservation.toString() + System.lineSeparator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+   
+
+
     
     //Arreglar rservas que no eleimina en el csv a la persona y arreglar ci en historico csv
 

@@ -42,7 +42,7 @@ public class HotelBookingSystem {
         AVLNode<ClientReservation> node = hotel.searchReservationByCi(14597844);
         if (node != null) {
             ClientReservation reservation = node.getData();
-            System.out.println(reservation.toString()); // replace toString with the appropriate method
+            System.out.println(reservation.toString()); 
         } else {
             System.out.println("No reservation found ");
         }

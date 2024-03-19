@@ -99,7 +99,7 @@ public class Hotel {
         }
         CSVWriter writer = new CSVWriter();
         writer.updateEstado(currentGuestsName);
-        writer.updateReservas(reservations);
+        writer.updateReservas(reservations, reservation.getFirstName() + "," + reservation.getLastName());
 
         
     }
@@ -115,11 +115,11 @@ public class Hotel {
                 id.insert(0, '.');
                 counter = 0;
             }
-            if (i < id.length()) {
-                id.insert(0, id.charAt(i));//Change
+            if (i < newci.length()) {
+                id.insert(0, newci.charAt(i));
             }
             counter++;
-                            System.out.println(id);
+
 
         }
         RoomHistory prevGuest = new RoomHistory(id.toString(), guest.getName(), guest.getLastName(), guest.getEmail(), guest.getGender(), guest.getArrival(), roomNum);
@@ -137,15 +137,13 @@ public class Hotel {
                 currentGuestsRoom.removeNode(Integer.toString(roomNum));
                 CSVWriter writer = new CSVWriter();
                 writer.updateEstado(currentGuestsName);
-                //writer.updateHistorico(roomHistory);
+                writer.updateHistorico(roomHistory);
             }
         
     }
     
     
-    //public String freeRoom(String roomType){
-        
-    //}
+    
         
             
 
