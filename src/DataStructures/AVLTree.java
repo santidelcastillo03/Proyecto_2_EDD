@@ -4,6 +4,8 @@
  */
 package DataStructures;
 
+import java.util.function.Consumer;
+
 /**
  *
  * @author santiagodelcastillo
@@ -165,5 +167,18 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         }
         return current;
     }
+    
+     public void inOrderTraversal(Consumer<T> consumer) {
+        inOrderTraversal(root, consumer);
+    }
+
+    private void inOrderTraversal(AVLNode<T> node, Consumer<T> consumer) {
+        if (node != null) {
+            inOrderTraversal(node.getLeft(), consumer);
+            consumer.accept(node.getData());
+            inOrderTraversal(node.getRight(), consumer);
+        }
+    }
+    
     
 }

@@ -4,6 +4,7 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.AVLNode;
 import DataStructures.DynamicArray;
 import UI.Menu;
 
@@ -38,7 +39,13 @@ public class HotelBookingSystem {
         }
        
 
-        System.out.println(hotel.searchReservationByCi(17153797).getData());
-    }
+        AVLNode<ClientReservation> node = hotel.searchReservationByCi(14597844);
+        if (node != null) {
+            ClientReservation reservation = node.getData();
+            System.out.println(reservation.toString()); // replace toString with the appropriate method
+        } else {
+            System.out.println("No reservation found ");
+        }
+        }
     
 }

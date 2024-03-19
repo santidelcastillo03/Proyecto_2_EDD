@@ -4,6 +4,8 @@
  */
 package DataStructures;
 
+import hotelbookingsystem.RoomHistory;
+
 /**
  *
  * @author santiagodelcastillo

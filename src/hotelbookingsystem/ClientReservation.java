@@ -109,7 +109,6 @@ public class ClientReservation{
 
     @Override
     public String toString() {
-        return "CI: " + ci + " /First Name: " + firstName + " /Last Name: " + lastName + " /Email: " + email + " /Gender: " + gender
-                + " /Room Type: " + roomType + " /Phone Number: " + phoneNum + " /Arrival: " + arrival + " /Departure: " + departure;
+        return ci+","+firstName+","+lastName+","+email+","+gender+","+roomType+","+phoneNum+","+arrival+","+departure;
     }
 }

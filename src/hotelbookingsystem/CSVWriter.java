@@ -4,7 +4,9 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.AVLNode;
 import DataStructures.AVLTree;
+import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 
 import java.io.*;
@@ -22,6 +24,54 @@ public class CSVWriter {
                         .append(guest.toString())
                         .append('\n');
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateHistorico(AVLTree<DynamicArray<RoomHistory>> historicoTree) {
+        try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - Histórico.csv")) {
+            writer.append("ci,primer_nombre,apellido,email,genero,celular,llegada,num_hab\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            historicoTree.inOrderTraversal(this::writeRoomHistories);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeRoomHistories(DynamicArray<RoomHistory> roomHistories) {
+        for (RoomHistory roomHistory : roomHistories) {
+            try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - Histórico.csv",true)) {
+                writer.append(roomHistory.toString()).append('\n');
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public void updateReservas(AVLTree<ClientReservation> reservationsTree) {
+    try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv")) {
+      writer.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    try {
+        reservationsTree.inOrderTraversal(this::writeClientReservations);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }   
+
+    private void writeClientReservations(ClientReservation clientReservation) {
+        try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv", true)) {
+            writer.append(clientReservation.toString()).append('\n');
         } catch (IOException e) {
             e.printStackTrace();
         }
