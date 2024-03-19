@@ -99,6 +99,7 @@ public class Hotel {
         }
         CSVWriter writer = new CSVWriter();
         writer.updateEstado(currentGuestsName);
+        writer.updateReservas(reservations);
 
         
     }
@@ -118,6 +119,8 @@ public class Hotel {
                 id.insert(0, id.charAt(i));//Change
             }
             counter++;
+                            System.out.println(id);
+
         }
         RoomHistory prevGuest = new RoomHistory(id.toString(), guest.getName(), guest.getLastName(), guest.getEmail(), guest.getGender(), guest.getArrival(), roomNum);
         AVLNode nodeExistsAlready = roomHistory.search(roomNum);
@@ -134,6 +137,7 @@ public class Hotel {
                 currentGuestsRoom.removeNode(Integer.toString(roomNum));
                 CSVWriter writer = new CSVWriter();
                 writer.updateEstado(currentGuestsName);
+                //writer.updateHistorico(roomHistory);
             }
         
     }

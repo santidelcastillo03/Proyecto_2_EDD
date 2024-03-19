@@ -82,6 +82,11 @@ public class RoomHistory implements Comparable<RoomHistory> {
     public void setRoom(int room) {
         this.room = room;
     }
+    
+    @Override
+    public String toString() {
+        return ID+","+name+","+lastName+","+email+","+gender+","+arrival+","+room;
+    }
 
     @Override
     public int compareTo(RoomHistory other) {
