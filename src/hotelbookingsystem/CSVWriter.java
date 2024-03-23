@@ -31,7 +31,7 @@ public class CSVWriter {
     
     public void updateHistorico(AVLTree<DynamicArray<RoomHistory>> historicoTree) {
         try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - Histórico.csv")) {
-            writer.append("ci,primer_nombre,apellido,email,genero,celular,llegada,num_hab\n");
+            writer.append("ci,primer_nombre,apellido,email,genero,llegada,num_hab\n");
 
         } catch (IOException e) {
             e.printStackTrace();
