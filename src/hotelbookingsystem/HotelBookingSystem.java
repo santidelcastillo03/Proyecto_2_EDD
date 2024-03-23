@@ -23,7 +23,9 @@ public class HotelBookingSystem {
         READERconAVL r = new READERconAVL();
         
         //hotel.checkIn(14597844);
-        hotel.checkOut("Winthrop Arnke", 85, 14597845);
+        
+        hotel.checkOut("Joell Woolforde", 189, 1461376657);
+        //hotel.checkIn(10054218);
         
         String roomID = hotel.checkGuest("Winthrop","Arnke");
         if (roomID != null) {
