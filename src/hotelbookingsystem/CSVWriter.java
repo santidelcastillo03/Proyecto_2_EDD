@@ -54,20 +54,7 @@ public class CSVWriter {
         }
     }
     
-//    public void updateReservas(AVLTree<ClientReservation> reservationsTree) {
-//    try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv")) {
-//      writer.append("ci,primer_nombre,segundo_nombre,email,genero,tipo_hab,celular,llegada,salida\n");
-//
-//    } catch (IOException e) {
-//        e.printStackTrace();
-//    }
-//
-//    try {
-//        reservationsTree.inOrderTraversal(this::writeClientReservations);
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
-//    }
+
 
     public void updateReservas(AVLTree<ClientReservation> reservationsTree, String nameToRemove) {
         try {
@@ -97,6 +84,6 @@ public class CSVWriter {
 
 
     
-    //Arreglar rservas que no eleimina en el csv a la persona y arreglar ci en historico csv
+    
 
 }
