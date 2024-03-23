@@ -22,7 +22,7 @@ public class HotelBookingSystem {
         Hotel hotel = new Hotel();
         READERconAVL r = new READERconAVL();
         
-        //hotel.checkIn(14597844);
+        hotel.checkIn(10203485);
         
         hotel.checkOut("Joell Woolforde", 189, 1461376657);
         //hotel.checkIn(10054218);
