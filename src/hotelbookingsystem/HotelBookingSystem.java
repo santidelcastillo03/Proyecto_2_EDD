@@ -22,17 +22,17 @@ public class HotelBookingSystem {
         Hotel hotel = new Hotel();
         READERconAVL r = new READERconAVL();
         
-        hotel.checkIn(14597844);
-        hotel.checkOut(21, 14597844);
+        //hotel.checkIn(14597844);
+        hotel.checkOut("Winthrop Arnke", 85, 14597845);
         
-        String roomID = hotel.checkGuest("Julianna","Gauld");
+        String roomID = hotel.checkGuest("Winthrop","Arnke");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
         } else {
             System.out.println("Client not found");
         }
         
-        DynamicArray<RoomHistory> a = (DynamicArray) hotel.searchHistoryByRoom(21).getData();
+        DynamicArray<RoomHistory> a = (DynamicArray) hotel.searchHistoryByRoom(85).getData();
        
         for (RoomHistory p : a) {
             System.out.println(p.getName());
