@@ -14,11 +14,16 @@ import javax.swing.ImageIcon;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+    SearchGuest searchGuest = new SearchGuest();
+    SearchRes searchRes = new SearchRes();
+    History history = new History();
+    CheckIn checkIn = new CheckIn();
+    CheckOut checkOut = new CheckOut();
+    
     public Menu() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
         
     }
     
@@ -58,7 +63,6 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,9 +81,12 @@ public class Menu extends javax.swing.JFrame {
         TXTSEARCHCLIENT.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         TXTSEARCHCLIENT.setForeground(new java.awt.Color(255, 255, 255));
         TXTSEARCHCLIENT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TXTSEARCHCLIENT.setText("Search Client");
+        TXTSEARCHCLIENT.setText("Search Guest");
         TXTSEARCHCLIENT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTSEARCHCLIENT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTSEARCHCLIENTMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTSEARCHCLIENTMouseEntered(evt);
             }
@@ -109,6 +116,9 @@ public class Menu extends javax.swing.JFrame {
         TXTSEARCHRESERVATION.setText("Search Reservation");
         TXTSEARCHRESERVATION.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTSEARCHRESERVATION.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTSEARCHRESERVATIONMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTSEARCHRESERVATIONMouseEntered(evt);
             }
@@ -140,6 +150,9 @@ public class Menu extends javax.swing.JFrame {
         TXTROOMHISTORY.setText("Room History");
         TXTROOMHISTORY.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTROOMHISTORY.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTROOMHISTORYMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTROOMHISTORYMouseEntered(evt);
             }
@@ -167,6 +180,9 @@ public class Menu extends javax.swing.JFrame {
         TXTCHECKIN.setText("Check-In");
         TXTCHECKIN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTCHECKIN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTCHECKINMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTCHECKINMouseEntered(evt);
             }
@@ -194,6 +210,9 @@ public class Menu extends javax.swing.JFrame {
         TXTCHECKOUT.setText("Check-Out");
         TXTCHECKOUT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TXTCHECKOUT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TXTCHECKOUTMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 TXTCHECKOUTMouseEntered(evt);
             }
@@ -221,11 +240,10 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(BTNCHECKOUT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BTNCHECKIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNROOMHISTORY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNSEARCHRESERVATION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTNSEARCHCLIENT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(BTNCHECKIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNROOMHISTORY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNSEARCHRESERVATION, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNSEARCHCLIENT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
         BARLayout.setVerticalGroup(
@@ -287,7 +305,7 @@ public class Menu extends javax.swing.JFrame {
         im3.setText(" ");
         bg.add(im3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, 200, 200));
 
-        authors.setFont(new java.awt.Font("Snap ITC", 0, 10)); // NOI18N
+        authors.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         authors.setForeground(new java.awt.Color(0, 0, 0));
         authors.setText("Made by: Santiago Del Castillo, Angel Garcia, Vicente Tralci.");
         bg.add(authors, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, -1, -1));
@@ -356,6 +374,26 @@ public class Menu extends javax.swing.JFrame {
     private void TXTCHECKOUTMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTCHECKOUTMouseExited
         BTNCHECKOUT.setBackground(new Color(0,67,67));
     }//GEN-LAST:event_TXTCHECKOUTMouseExited
+
+    private void TXTSEARCHCLIENTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTSEARCHCLIENTMouseClicked
+        searchGuest.setVisible(true);
+    }//GEN-LAST:event_TXTSEARCHCLIENTMouseClicked
+
+    private void TXTSEARCHRESERVATIONMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTSEARCHRESERVATIONMouseClicked
+        searchRes.setVisible(true);
+    }//GEN-LAST:event_TXTSEARCHRESERVATIONMouseClicked
+
+    private void TXTROOMHISTORYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTROOMHISTORYMouseClicked
+        history.setVisible(true);
+    }//GEN-LAST:event_TXTROOMHISTORYMouseClicked
+
+    private void TXTCHECKINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTCHECKINMouseClicked
+        checkIn.setVisible(true);
+    }//GEN-LAST:event_TXTCHECKINMouseClicked
+
+    private void TXTCHECKOUTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTCHECKOUTMouseClicked
+        checkOut.setVisible(true);
+    }//GEN-LAST:event_TXTCHECKOUTMouseClicked
 
     /**
      * @param args the command line arguments

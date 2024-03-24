@@ -8,7 +8,7 @@ package hotelbookingsystem;
  *RESERVAS
  * @author Angel
  */
-public class ClientReservation implements Comparable<ClientReservation>{
+public class ClientReservation{
     private String ci;
     private String firstName;
     private String lastName;
@@ -32,8 +32,6 @@ public class ClientReservation implements Comparable<ClientReservation>{
         this.phoneNum = phoneNum;
         this.arrival = arrival;
         this.departure = departure;
-        this.checkIn = false;
-        this.checkOut = false;
     }
 
     public String getCi() {
@@ -108,29 +106,9 @@ public class ClientReservation implements Comparable<ClientReservation>{
         this.departure = departure;
     }
 
-    public boolean isCheckIn() {
-        return checkIn;
-    }
 
-    public void setCheckIn(boolean checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public boolean isCheckOut() {
-        return checkOut;
-    }
-
-    public void setCheckOut(boolean checkOut) {
-        this.checkOut = checkOut;
-    }
-
-@Override
-public int compareTo(ClientReservation other) {
-    return this.ci.compareTo(other.ci);
-}
     @Override
     public String toString() {
-        return "CI: " + ci + " /First Name: " + firstName + " /Last Name: " + lastName + " /Email: " + email + " /Gender: " + gender
-                + " /Room Type: " + roomType + " /Phone Number: " + phoneNum + " /Arrival: " + arrival + " /Departure: " + departure;
+        return ci+","+firstName+","+lastName+","+email+","+gender+","+roomType+","+phoneNum+","+arrival+","+departure;
     }
 }

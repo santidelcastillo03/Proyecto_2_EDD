@@ -83,11 +83,11 @@ public class Guest {
         this.room = room;
     }
     
-    
+  
     
     @Override
     public String toString() {
-        return "Name: "+name +" /Last name: "+lastName+" /ROOM: "+room.getID()+" /email: "+email+ " /gender: "+gender+" /phone: "+phone+" /arrival: "+arrival;
+        return room.getID() + "," + name + "," + lastName + "," + email + "," + gender + "," + phone + "," + arrival;
     }
     
 }

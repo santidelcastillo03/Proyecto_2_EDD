@@ -4,6 +4,10 @@
  */
 package hotelbookingsystem;
 
+import DataStructures.AVLNode;
+import DataStructures.DynamicArray;
+import UI.Menu;
+
 /**
  *
  * @author Santiago
@@ -14,18 +18,36 @@ public class HotelBookingSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hotel hotel = new Hotel(100,"src/CSVFiles/Booking_hotel - estado.csv"
-        );
-        CSVReaderGuestsRooms csvr = new CSVReaderGuestsRooms("src/CSVFiles/Booking_hotel - estado.csv");
-        csvr.PrintEstado();
-        csvr.printRooms();
-        String roomID = hotel.checkGuest("Diane","Devote");
+        Menu ui = new Menu();
+        Hotel hotel = new Hotel();
+        READERconAVL r = new READERconAVL();
+        
+        hotel.checkIn(10203485);
+        
+        hotel.checkOut("Joell Woolforde", 189, 1461376657);
+        //hotel.checkIn(10054218);
+        
+        String roomID = hotel.checkGuest("Winthrop","Arnke");
         if (roomID != null) {
             System.out.println("Room number: " + roomID);
         } else {
             System.out.println("Client not found");
         }
+        
+        DynamicArray<RoomHistory> a = (DynamicArray) hotel.searchHistoryByRoom(85).getData();
        
-    }
+        for (RoomHistory p : a) {
+            System.out.println(p.getName());
+        }
+       
+
+        AVLNode<ClientReservation> node = hotel.searchReservationByCi(14597844);
+        if (node != null) {
+            ClientReservation reservation = node.getData();
+            System.out.println(reservation.toString()); 
+        } else {
+            System.out.println("No reservation found ");
+        }
+        }
     
 }
