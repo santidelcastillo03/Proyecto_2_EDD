@@ -22,9 +22,9 @@ public class HotelBookingSystem {
         Hotel hotel = new Hotel();
         READERconAVL r = new READERconAVL();
         
-        hotel.checkIn(10203485);
+       // hotel.checkIn(10203485);
         
-        hotel.checkOut("Joell Woolforde", 189, 1461376657);
+       // hotel.checkOut("Joell Woolforde", 189, 1461376657);
         //hotel.checkIn(10054218);
         
         String roomID = hotel.checkGuest("Winthrop","Arnke");
@@ -44,7 +44,7 @@ public class HotelBookingSystem {
         AVLNode<ClientReservation> node = hotel.searchReservationByCi(14597844);
         if (node != null) {
             ClientReservation reservation = node.getData();
-            System.out.println(reservation.toString()); 
+            System.out.println(reservation.display()); 
         } else {
             System.out.println("No reservation found ");
         }

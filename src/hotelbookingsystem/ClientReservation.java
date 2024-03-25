@@ -111,4 +111,10 @@ public class ClientReservation{
     public String toString() {
         return ci+","+firstName+","+lastName+","+email+","+gender+","+roomType+","+phoneNum+","+arrival+","+departure;
     }
+    
+    public String display() {
+    return "C.i: "+ci+"\nName: "+firstName+"\nLast Name: "+lastName
+        +"\nEmail: "+email+"\nGender: "+gender+"\nRoom Type: "+roomType
+        +"\nPhone Number: "+phoneNum+"\nArrival: "+arrival+"\nDeparture: "+departure;
+    }
 }
