@@ -299,10 +299,12 @@ public class Menu extends javax.swing.JFrame {
 
         im2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/im2.png"))); // NOI18N
         im2.setText(" ");
+        im2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bg.add(im2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 200, 200));
 
         im3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/im3.png"))); // NOI18N
         im3.setText(" ");
+        im3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bg.add(im3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, 200, 200));
 
         authors.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N

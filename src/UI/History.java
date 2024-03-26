@@ -4,6 +4,7 @@
  */
 package UI;
 
+import java.awt.Color;
 import javax.swing.WindowConstants;
 
 /**
@@ -30,35 +31,174 @@ public class History extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        JFrameA = new javax.swing.JPanel();
+        bg = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         RoomIDInput = new javax.swing.JTextField();
-        SearchBu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        logohistory = new javax.swing.JLabel();
+        barhistory = new javax.swing.JPanel();
+        bartxt = new javax.swing.JLabel();
+        searchbtnh = new javax.swing.JPanel();
+        searchtxth = new javax.swing.JLabel();
+        backbtnh = new javax.swing.JPanel();
+        backtxth = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        JFrameA.setBackground(new java.awt.Color(255, 255, 255));
+        JFrameA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Room ID: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
-        getContentPane().add(RoomIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JFrameA.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
-        SearchBu.setText("search");
-        getContentPane().add(SearchBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("SEARCH: ");
+        JFrameA.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 60));
 
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        JFrameA.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 220, 10));
+
+        RoomIDInput.setBackground(new java.awt.Color(255, 255, 255));
+        RoomIDInput.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        RoomIDInput.setForeground(new java.awt.Color(0, 0, 0));
+        RoomIDInput.setText("Enter the room id");
+        RoomIDInput.setBorder(null);
+        RoomIDInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomIDInputActionPerformed(evt);
+            }
+        });
+        JFrameA.add(RoomIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, 40));
+
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("AQUI QUE APAREZCA LA LISTA DE \nHISTORICO");
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        JFrameA.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 600, 220));
+
+        logohistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
+        logohistory.setText(" ");
+        JFrameA.add(logohistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 140));
+
+        barhistory.setBackground(new java.awt.Color(0, 67, 67));
+
+        bartxt.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        bartxt.setForeground(new java.awt.Color(255, 255, 255));
+        bartxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bartxt.setText("HISTORY");
+
+        javax.swing.GroupLayout barhistoryLayout = new javax.swing.GroupLayout(barhistory);
+        barhistory.setLayout(barhistoryLayout);
+        barhistoryLayout.setHorizontalGroup(
+            barhistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+        );
+        barhistoryLayout.setVerticalGroup(
+            barhistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+
+        JFrameA.add(barhistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 560, 140));
+
+        searchbtnh.setBackground(new java.awt.Color(0, 67, 67));
+
+        searchtxth.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        searchtxth.setForeground(new java.awt.Color(255, 255, 255));
+        searchtxth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        searchtxth.setText("SEARCH");
+        searchtxth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchtxth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchtxthMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchtxthMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout searchbtnhLayout = new javax.swing.GroupLayout(searchbtnh);
+        searchbtnh.setLayout(searchbtnhLayout);
+        searchbtnhLayout.setHorizontalGroup(
+            searchbtnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(searchtxth, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        searchbtnhLayout.setVerticalGroup(
+            searchbtnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(searchtxth, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        JFrameA.add(searchbtnh, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 130, 40));
+
+        backbtnh.setBackground(new java.awt.Color(0, 67, 67));
+        backbtnh.setForeground(new java.awt.Color(255, 255, 255));
+
+        backtxth.setBackground(new java.awt.Color(255, 255, 255));
+        backtxth.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        backtxth.setForeground(new java.awt.Color(255, 255, 255));
+        backtxth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        backtxth.setText("BACK");
+        backtxth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backtxth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backtxthMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backtxthMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backtxthMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout backbtnhLayout = new javax.swing.GroupLayout(backbtnh);
+        backbtnh.setLayout(backbtnhLayout);
+        backbtnhLayout.setHorizontalGroup(
+            backbtnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backtxth, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        backbtnhLayout.setVerticalGroup(
+            backbtnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backtxth, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        JFrameA.add(backbtnh, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 130, 40));
+
+        getContentPane().add(JFrameA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RoomIDInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomIDInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomIDInputActionPerformed
+
+    private void backtxthMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxthMouseEntered
+        backbtnh.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_backtxthMouseEntered
+
+    private void backtxthMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxthMouseExited
+        backbtnh.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_backtxthMouseExited
+
+    private void searchtxthMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtxthMouseEntered
+        searchbtnh.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_searchtxthMouseEntered
+
+    private void backtxthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxthMouseClicked
+        this.setVisible(false); 
+    }//GEN-LAST:event_backtxthMouseClicked
+
+    private void searchtxthMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtxthMouseExited
+        searchbtnh.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_searchtxthMouseExited
 
     /**
      * @param args the command line arguments
@@ -96,11 +236,19 @@ public class History extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JFrameA;
     private javax.swing.JTextField RoomIDInput;
-    private javax.swing.JButton SearchBu;
+    private javax.swing.JPanel backbtnh;
+    private javax.swing.JLabel backtxth;
+    private javax.swing.JPanel barhistory;
+    private javax.swing.JLabel bartxt;
+    private javax.swing.JPanel bg;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel logohistory;
+    private javax.swing.JPanel searchbtnh;
+    private javax.swing.JLabel searchtxth;
     // End of variables declaration//GEN-END:variables
 }

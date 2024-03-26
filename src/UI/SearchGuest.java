@@ -32,14 +32,33 @@ public class SearchGuest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< Updated upstream
         NameInout = new javax.swing.JTextField();
         LastNameInput = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         searGBu = new javax.swing.JButton();
         BackBu = new javax.swing.JButton();
+=======
+        bgsearchg = new javax.swing.JPanel();
+        logoim = new javax.swing.JLabel();
+        bar = new javax.swing.JPanel();
+        sgtitle = new javax.swing.JLabel();
+        sgsubtitle = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        auxL = new javax.swing.JTextField();
+        backbtn = new javax.swing.JPanel();
+        backtxt = new javax.swing.JLabel();
+        searchgbtn = new javax.swing.JPanel();
+        searchgtxt = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        glastname = new javax.swing.JTextField();
+        gfirstname1 = new javax.swing.JTextField();
+        roomLabel = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(NameInout, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 80, -1));
         getContentPane().add(LastNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 90, -1));
@@ -47,11 +66,59 @@ public class SearchGuest extends javax.swing.JFrame {
         jLabel1.setText("Name");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
+<<<<<<< Updated upstream
         jLabel2.setText("Las Name: ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         searGBu.setText("search");
         searGBu.addActionListener(new java.awt.event.ActionListener() {
+=======
+        logoim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
+        bgsearchg.add(logoim, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 140));
+
+        bar.setBackground(new java.awt.Color(0, 67, 67));
+
+        sgtitle.setBackground(new java.awt.Color(255, 255, 255));
+        sgtitle.setFont(new java.awt.Font("Snap ITC", 0, 36)); // NOI18N
+        sgtitle.setForeground(new java.awt.Color(255, 255, 255));
+        sgtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sgtitle.setText("SEARCH GUEST");
+
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sgtitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(sgtitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bgsearchg.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 560, 140));
+
+        sgsubtitle.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        sgsubtitle.setForeground(new java.awt.Color(0, 102, 102));
+        sgsubtitle.setText("SEARCH:");
+        bgsearchg.add(sgsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        bgsearchg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 240, 10));
+
+        auxL.setBackground(new java.awt.Color(255, 255, 255));
+        auxL.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        auxL.setForeground(new java.awt.Color(204, 204, 204));
+        auxL.setBorder(null);
+        auxL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                auxLMouseClicked(evt);
+            }
+        });
+        auxL.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searGBuActionPerformed(evt);
             }
@@ -64,7 +131,47 @@ public class SearchGuest extends javax.swing.JFrame {
                 BackBuActionPerformed(evt);
             }
         });
+<<<<<<< Updated upstream
         getContentPane().add(BackBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
+=======
+        glastname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                glastnameKeyPressed(evt);
+            }
+        });
+        bgsearchg.add(glastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 240, 50));
+
+        gfirstname1.setBackground(new java.awt.Color(255, 255, 255));
+        gfirstname1.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        gfirstname1.setForeground(new java.awt.Color(0, 0, 0));
+        gfirstname1.setText("Enter the first name");
+        gfirstname1.setBorder(null);
+        gfirstname1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gfirstname1MouseClicked(evt);
+            }
+        });
+        gfirstname1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gfirstname1ActionPerformed(evt);
+            }
+        });
+        gfirstname1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gfirstname1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gfirstname1KeyTyped(evt);
+            }
+        });
+        bgsearchg.add(gfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, 50));
+
+        roomLabel.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        roomLabel.setForeground(new java.awt.Color(0, 102, 102));
+        bgsearchg.add(roomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 540, 40));
+
+        getContentPane().add(bgsearchg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+>>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,9 +181,91 @@ public class SearchGuest extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(null, "Room: "+ roomId);
     }//GEN-LAST:event_searGBuActionPerformed
 
+<<<<<<< Updated upstream
     private void BackBuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBuActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_BackBuActionPerformed
+=======
+    private void backtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxtMouseClicked
+        this.setVisible(false); 
+        gfirstname1.setText("Enter the first name");
+        glastname.setText("Enter the last name");
+        roomLabel.setText("");
+    }//GEN-LAST:event_backtxtMouseClicked
+
+    private void backtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxtMouseEntered
+        backbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_backtxtMouseEntered
+
+    private void backtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxtMouseExited
+        backbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_backtxtMouseExited
+
+    private void searchgtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchgtxtMouseEntered
+        searchgbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_searchgtxtMouseEntered
+
+    private void searchgtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchgtxtMouseExited
+        searchgbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_searchgtxtMouseExited
+
+    private void searchgtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchgtxtMouseClicked
+
+        String name = gfirstname1.getText();
+        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+        String lastName = glastname.getText();
+        String capitalizedLastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        
+        String roomID = hotel.checkGuest(capitalizedName, capitalizedLastName);
+        if (roomID == null) {
+            JOptionPane.showMessageDialog(null, "Guest not found");
+        } else {
+            roomLabel.setText("Room: "+roomID);
+        }
+        gfirstname1.setText("Enter the first name");
+        glastname.setText("Enter the last name");
+    }//GEN-LAST:event_searchgtxtMouseClicked
+
+    private void auxLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_auxLMouseClicked
+        
+    }//GEN-LAST:event_auxLMouseClicked
+
+    private void glastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_glastnameActionPerformed
+        
+    }//GEN-LAST:event_glastnameActionPerformed
+
+    private void glastnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_glastnameMouseClicked
+       glastname.setText("");
+    }//GEN-LAST:event_glastnameMouseClicked
+
+    private void auxLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_auxLKeyPressed
+        
+    }//GEN-LAST:event_auxLKeyPressed
+
+    private void glastnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_glastnameKeyPressed
+        
+    }//GEN-LAST:event_glastnameKeyPressed
+
+    private void auxLKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_auxLKeyTyped
+        
+    }//GEN-LAST:event_auxLKeyTyped
+
+    private void gfirstname1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gfirstname1MouseClicked
+        gfirstname1.setText("");
+    }//GEN-LAST:event_gfirstname1MouseClicked
+
+    private void gfirstname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gfirstname1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gfirstname1ActionPerformed
+
+    private void gfirstname1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gfirstname1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gfirstname1KeyPressed
+
+    private void gfirstname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gfirstname1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gfirstname1KeyTyped
+>>>>>>> Stashed changes
 
     /**
      * @param args the command line arguments
@@ -114,11 +303,29 @@ public class SearchGuest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< Updated upstream
     private javax.swing.JButton BackBu;
     private javax.swing.JTextField LastNameInput;
     private javax.swing.JTextField NameInout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton searGBu;
+=======
+    private javax.swing.JTextField auxL;
+    private javax.swing.JPanel backbtn;
+    private javax.swing.JLabel backtxt;
+    private javax.swing.JPanel bar;
+    private javax.swing.JPanel bgsearchg;
+    private javax.swing.JTextField gfirstname1;
+    private javax.swing.JTextField glastname;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel logoim;
+    private javax.swing.JLabel roomLabel;
+    private javax.swing.JPanel searchgbtn;
+    private javax.swing.JLabel searchgtxt;
+    private javax.swing.JLabel sgsubtitle;
+    private javax.swing.JLabel sgtitle;
+>>>>>>> Stashed changes
     // End of variables declaration//GEN-END:variables
 }
