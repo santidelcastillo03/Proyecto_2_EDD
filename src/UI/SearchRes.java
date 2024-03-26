@@ -4,6 +4,7 @@
  */
 package UI;
 
+import java.awt.Color;
 import javax.swing.WindowConstants;
 
 /**
@@ -30,40 +31,188 @@ public class SearchRes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        bgsr = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        bar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        CIInput = new javax.swing.JTextField();
-        SearcBu = new javax.swing.JButton();
-        BackBu = new javax.swing.JButton();
+        srbackbtn = new javax.swing.JPanel();
+        srbacktxt = new javax.swing.JLabel();
+        searchsubt = new javax.swing.JLabel();
+        separator = new javax.swing.JSeparator();
+        gci = new javax.swing.JTextField();
+        rsearchbtn = new javax.swing.JPanel();
+        rsearchtxt = new javax.swing.JLabel();
+        reservationlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+        bgsr.setBackground(new java.awt.Color(255, 255, 255));
+        bgsr.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("C.I");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
+        logo.setText(" ");
+        bgsr.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
-        CIInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CIInputActionPerformed(evt);
+        bar.setBackground(new java.awt.Color(0, 67, 67));
+
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SEARCH RESERVATION");
+
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+
+        bgsr.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 560, 140));
+
+        srbackbtn.setBackground(new java.awt.Color(0, 67, 67));
+
+        srbacktxt.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt.setText("BACK");
+        srbacktxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseExited(evt);
             }
         });
-        getContentPane().add(CIInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, -1));
 
-        SearcBu.setText("Search");
-        getContentPane().add(SearcBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
+        javax.swing.GroupLayout srbackbtnLayout = new javax.swing.GroupLayout(srbackbtn);
+        srbackbtn.setLayout(srbackbtnLayout);
+        srbackbtnLayout.setHorizontalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(srbacktxt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        srbackbtnLayout.setVerticalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(srbacktxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
 
-        BackBu.setText("<<Back");
-        getContentPane().add(BackBu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        bgsr.add(srbackbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 130, 40));
+
+        searchsubt.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        searchsubt.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt.setText("SEARCH:");
+        bgsr.add(searchsubt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        separator.setForeground(new java.awt.Color(0, 0, 0));
+        bgsr.add(separator, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 240, 10));
+
+        gci.setBackground(new java.awt.Color(255, 255, 255));
+        gci.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        gci.setForeground(new java.awt.Color(0, 0, 0));
+        gci.setText("Enter the id/ci");
+        gci.setBorder(null);
+        gci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gciMouseClicked(evt);
+            }
+        });
+        gci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gciActionPerformed(evt);
+            }
+        });
+        gci.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gciKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gciKeyTyped(evt);
+            }
+        });
+        bgsr.add(gci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, 50));
+
+        rsearchbtn.setBackground(new java.awt.Color(0, 67, 67));
+
+        rsearchtxt.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        rsearchtxt.setForeground(new java.awt.Color(255, 255, 255));
+        rsearchtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rsearchtxt.setText("SEARCH");
+        rsearchtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rsearchtxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rsearchtxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rsearchtxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout rsearchbtnLayout = new javax.swing.GroupLayout(rsearchbtn);
+        rsearchbtn.setLayout(rsearchbtnLayout);
+        rsearchbtnLayout.setHorizontalGroup(
+            rsearchbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rsearchtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        rsearchbtnLayout.setVerticalGroup(
+            rsearchbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rsearchtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        bgsr.add(rsearchbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 130, 40));
+
+        reservationlabel.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        reservationlabel.setForeground(new java.awt.Color(0, 0, 0));
+        bgsr.add(reservationlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 500, 80));
+
+        getContentPane().add(bgsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CIInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CIInputActionPerformed
+    private void srbacktxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseEntered
+        srbackbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_srbacktxtMouseEntered
+
+    private void srbacktxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseExited
+        srbackbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_srbacktxtMouseExited
+
+    private void srbacktxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseClicked
+        this.setVisible(false); 
+    }//GEN-LAST:event_srbacktxtMouseClicked
+
+    private void gciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gciMouseClicked
+        gci.setText("");
+    }//GEN-LAST:event_gciMouseClicked
+
+    private void gciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gciActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CIInputActionPerformed
+    }//GEN-LAST:event_gciActionPerformed
+
+    private void gciKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gciKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gciKeyPressed
+
+    private void gciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gciKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gciKeyTyped
+
+    private void rsearchtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsearchtxtMouseEntered
+        rsearchbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_rsearchtxtMouseEntered
+
+    private void rsearchtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsearchtxtMouseExited
+        rsearchbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_rsearchtxtMouseExited
 
     /**
      * @param args the command line arguments
@@ -101,10 +250,17 @@ public class SearchRes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackBu;
-    private javax.swing.JTextField CIInput;
-    private javax.swing.JButton SearcBu;
+    private javax.swing.JPanel bar;
+    private javax.swing.JPanel bgsr;
+    private javax.swing.JTextField gci;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel reservationlabel;
+    private javax.swing.JPanel rsearchbtn;
+    private javax.swing.JLabel rsearchtxt;
+    private javax.swing.JLabel searchsubt;
+    private javax.swing.JSeparator separator;
+    private javax.swing.JPanel srbackbtn;
+    private javax.swing.JLabel srbacktxt;
     // End of variables declaration//GEN-END:variables
 }
