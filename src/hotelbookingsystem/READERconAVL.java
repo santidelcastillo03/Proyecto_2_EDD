@@ -11,15 +11,27 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ *reads the csv and add it to an AVL
+ * @author Santiago
+ */
 public class READERconAVL {
     private AVLTree<ClientReservation> reservasTree;
     private AVLTree<DynamicArray<RoomHistory>> historicoTree;
 
+    /**
+     *
+     */
     public READERconAVL() {
         this.reservasTree = new AVLTree<>();
         this.historicoTree = new AVLTree<>();
     }
 
+    /**
+     * reads the historico csv
+     *@author Vicente Tralci
+     * @return
+     */
     public AVLTree<DynamicArray<RoomHistory>> readHistoricoCSV() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - Histórico.csv"))) {
             String line;
@@ -46,6 +58,11 @@ public class READERconAVL {
         return historicoTree;
     }
 
+    /**
+     * reads the reservas csv
+     *@author Vicente Tralci
+     * @return
+     */
     public AVLTree<ClientReservation> readReservasCSV() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/CSVFiles/Booking_hotel - reservas.csv"))) {
             String line;
@@ -62,6 +79,11 @@ public class READERconAVL {
         return reservasTree;
     }
     
+    /**
+     *
+     * @param ci
+     * @return
+     */
     public int checkCi(String ci) {
         String checkCi = ci.replace(".", "");
         return Integer.parseInt(checkCi);

@@ -6,7 +6,9 @@ package DataStructures;
 
 /**
  *
- * @author Santiago
+ * @author Santiago del Castillo
+ * @param <K>
+ * @param <V>
  */
 public class HashTable<K,V> {
     private HTNode<K,V>[] table;
@@ -14,19 +16,35 @@ public class HashTable<K,V> {
     private static final float loadFactor = 0.75f;
     private  int entries;
     
+    /**
+     *
+     * @param size
+     */
     public HashTable(int size) {
         this.size = size;
         table = new HTNode[size];
     }
 
+    /**
+     *
+     * @return
+     */
     public HTNode<K, V>[] getTable() {
         return table;
     }
 
+    /**
+     *
+     * @return
+     */
     public static float getLoadFactor() {
         return loadFactor;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEntries() {
         return entries;
     }
@@ -35,6 +53,12 @@ public class HashTable<K,V> {
         return Math.abs(key.hashCode()) % size;
     }
     
+    /**
+     * Adds to the hash table
+     *@author Santiago del Castillo
+     * @param key
+     * @param value
+     */
     public void put(K key, V value) {
         if (entries >= size * loadFactor) {
             rehash();
@@ -62,6 +86,10 @@ public class HashTable<K,V> {
         entries++;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSize() {
         return size;
     }
@@ -83,6 +111,11 @@ public class HashTable<K,V> {
         }
     }
     
+    /**
+     *
+     * @param key
+     * @return
+     */
     public V get(K key) {
         int index = hash(key);
         HTNode<K,V> node = table[index];
@@ -95,6 +128,10 @@ public class HashTable<K,V> {
         return null;
     }
     
+    /**
+     *
+     * @return
+     */
     public DynamicArray<K> keys() {
         DynamicArray<K> keys = new DynamicArray<>();
         for (HTNode<K,V> node : table) {
@@ -105,6 +142,12 @@ public class HashTable<K,V> {
         }
         return keys;
     }
+
+    /**
+     * copies the hash table
+     *@author Santiago del Castillo
+     * @return
+     */
     public HashTable<K, V> copyHashTable() {
         HashTable<K, V> copiedTable = new HashTable<>(size);
         for (int i = 0; i < size; i++) {
@@ -120,6 +163,12 @@ public class HashTable<K,V> {
         return copiedTable;
     }
     
+    /**
+     *removes a node from the hash table
+     * @author Santiago del Castillo
+     * @param key
+     * @return
+     */
     public HTNode removeNode(K key){
         int index = hash(key);
         HTNode<K,V> head = table[index];

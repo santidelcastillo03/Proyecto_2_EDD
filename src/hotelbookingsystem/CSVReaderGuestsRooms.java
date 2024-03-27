@@ -11,8 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
- * @author santiagodelcastillo
+ *reads csv and adds it to a hash table
+ * @author Santiago del Castillo
  */
 public class CSVReaderGuestsRooms {
     private String pathGuests;
@@ -20,6 +20,9 @@ public class CSVReaderGuestsRooms {
     private DynamicArray<Guest> allGuests;
     private DynamicArray<Room> allRooms;
 
+    /**
+     *
+     */
     public CSVReaderGuestsRooms() {
         this.pathGuests = pathGuests;
         this.pathRooms = pathRooms;
@@ -27,8 +30,12 @@ public class CSVReaderGuestsRooms {
         this.allRooms = new DynamicArray();
     }
    
-    
-     public HashTable<String, Guest> readGuestsCI() {
+    /**
+     * reads the estado csv
+     *@author Santiago del Castillo
+     * @return
+     */
+    public HashTable<String, Guest> readGuestsCI() {
         HashTable<String, Guest> clients = new HashTable<>(100);
         HashTable<String,Room> rooms = readRooms();
         String line;
@@ -57,6 +64,11 @@ public class CSVReaderGuestsRooms {
         return clients;
     }
      
+    /**
+     * reads the estado csv
+     *@author Santiago del Castillo
+     * @return
+     */
     public HashTable<String, Guest> readGuestsRoom() {
         HashTable<String, Guest> clients = new HashTable<>(100);
         HashTable<String,Room> rooms = readRooms();
@@ -85,18 +97,31 @@ public class CSVReaderGuestsRooms {
         return clients;
     }
 
+    /**
+     * prints the hash table
+     *@author Santiago del Castillo
+     * @param table
+     */
     public void printHashTable(HashTable<String, Guest> table) {
         for (String key : table.keys()) {
             System.out.println(table.get(key));
         }
     }
 
+    /**
+     *
+     */
     public void PrintEstado() {
         HashTable<String, Guest> clients = readGuestsCI();
         printHashTable(clients);
         System.out.println(clients.getSize());
     }
     
+    /**
+     * reads the habitaciones csv
+     *@author Santiago del Castillo
+     * @return
+     */
     public HashTable<String,Room> readRooms() {
         HashTable<String,Room> rooms = new HashTable<>(100);
         String line;
@@ -117,6 +142,9 @@ public class CSVReaderGuestsRooms {
         return rooms;
     }
     
+    /**
+     *
+     */
     public void printRooms() {
     HashTable<String, Room> rooms = readRooms();
     for (String key : rooms.keys()) {
@@ -124,26 +152,50 @@ public class CSVReaderGuestsRooms {
     }
 }
 
+    /**
+     *
+     * @return
+     */
     public String getPathGuests() {
         return pathGuests;
     }
 
+    /**
+     *
+     * @param pathGuests
+     */
     public void setPathGuests(String pathGuests) {
         this.pathGuests = pathGuests;
     }
 
+    /**
+     *
+     * @return
+     */
     public DynamicArray<Guest> getAllGuests() {
         return allGuests;
     }
 
+    /**
+     *
+     * @param allGuests
+     */
     public void setAllGuests(DynamicArray<Guest>  allGuests) {
         this.allGuests = allGuests;
     }
 
+    /**
+     *
+     * @return
+     */
     public  DynamicArray<Room>  getAllRooms() {
         return allRooms;
     }
 
+    /**
+     *
+     * @param allRooms
+     */
     public void setAllRooms(DynamicArray<Room>  allRooms) {
         this.allRooms = allRooms;
     }

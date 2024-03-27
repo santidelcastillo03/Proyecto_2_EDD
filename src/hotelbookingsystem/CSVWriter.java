@@ -11,10 +11,16 @@ import DataStructures.HashTable;
 
 import java.io.*;
 /**
- *
+ *writes over the csv files
  * @author Santiago
  */
 public class CSVWriter {
+
+    /**
+     * overwrites the estado csv
+     *@author Santiago del Castillo
+     * @param table
+     */
     public void updateEstado(HashTable<String, Guest> table) {
         try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - estado.csv")) {
             writer.append("num_hab,primer_nombre,apellido,email,genero,celular,llegada\n");
@@ -29,6 +35,11 @@ public class CSVWriter {
         }
     }
     
+    /**
+     * overwrites the historico csv
+     *@author Santiago del Castillo
+     * @param historicoTree
+     */
     public void updateHistorico(AVLTree<DynamicArray<RoomHistory>> historicoTree) {
         try (FileWriter writer = new FileWriter("src/CSVFiles/Booking_hotel - Histórico.csv")) {
             writer.append("ci,primer_nombre,apellido,email,genero,llegada,num_hab\n");
@@ -54,8 +65,12 @@ public class CSVWriter {
         }
     }
     
-
-
+    /**
+     * overwrites the reservass csv
+     *@author Santiago del Castillo
+     * @param reservationsTree
+     * @param nameToRemove
+     */
     public void updateReservas(AVLTree<ClientReservation> reservationsTree, String nameToRemove) {
         try {
             FileWriter clearWriter = new FileWriter("src/CSVFiles/Booking_hotel - reservas.csv");

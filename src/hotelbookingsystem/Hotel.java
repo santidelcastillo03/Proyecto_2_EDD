@@ -10,8 +10,8 @@ import DataStructures.DynamicArray;
 import DataStructures.HashTable;
 
 /**
- *
- * @author santiagodelcastillo
+ *This class contains the main methods of the project
+ * @author Santiago del Castillo
  */
 public class Hotel {
     private HashTable<String, Guest> currentGuestsName;
@@ -22,7 +22,9 @@ public class Hotel {
     private AVLTree<DynamicArray<RoomHistory>> roomHistory;
     private static Hotel instance;
 
-
+    /**
+     *
+     */
     public Hotel() {
         this.currentGuestsName = new HashTable<>(100);
         this.currentGuestsRoom = new HashTable<>(100);
@@ -35,6 +37,11 @@ public class Hotel {
         
     }
     
+    /**
+     * create one instance of the class that can be used throughout the project
+     *@author Santiago del Castillo
+     * @return
+     */
     public static synchronized Hotel getInstance() {
         if (instance == null) {
             instance = new Hotel();
@@ -42,17 +49,34 @@ public class Hotel {
         return instance;
     }
 
+    /**
+     * add a guest to the hash table
+     *@author Santiago del Castillo
+     * @param client
+     */
     public void uploadClient(Guest client) {
         String key = client.getName() + " " + client.getLastName();
         currentGuestsName.put(key, client);
     }
 
+    /**
+     *@author Santiago del Castillo
+     * @param firstName
+     * @param lastName
+     * @return
+     */
     public String checkGuest(String firstName, String lastName) {
         String key = firstName + " " + lastName;
         Guest client = currentGuestsName.get(key);
         return client != null ? client.getRoom().getID() : null;
     }
 
+    /**
+     * searches in the reservation AVL by ci
+     *@author Vicente Tralci
+     * @param ci
+     * @return
+     */
     public AVLNode searchReservationByCi(int ci) {
         AVLNode current = reservations.getRoot();
         while (current != null) {
@@ -68,6 +92,12 @@ public class Hotel {
         return null;
     }
 
+    /**
+     * searches the history AVL by room number
+     *@author Vicente Tralci
+     * @param roomNumber
+     * @return
+     */
     public AVLNode searchHistoryByRoom(int roomNumber) {
         AVLNode current = roomHistory.getRoot();
         while (current != null) {
@@ -83,8 +113,11 @@ public class Hotel {
         return null;
     }
 
-
-    
+    /**
+     * does the checkin
+     *@author Vicente Tralci
+     * @param ci
+     */
     public void checkIn(int ci){
         ClientReservation reservation = (ClientReservation) searchReservationByCi(ci).getData();
         String roomReservedType = reservation.getRoomType();
@@ -114,8 +147,14 @@ public class Hotel {
 
     }
 
-
-
+    /**
+     * does the checkout
+     *@author Vicente Tralci
+     * @param fullName
+     * @param roomNum
+     * @param ci
+     * @throws Exception
+     */
     public void checkOut(String fullName, int roomNum, int ci) throws Exception {
         Guest guest = currentGuestsName.get(fullName);
         if (guest == null) {

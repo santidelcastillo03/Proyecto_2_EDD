@@ -7,8 +7,9 @@ package DataStructures;
 import java.util.function.Consumer;
 
 /**
- *
+ *AVL tree
  * @author santiagodelcastillo
+ * @param <T>
  */
 public class AVLTree<T> {
     private AVLNode<T> root;
@@ -26,7 +27,7 @@ public class AVLTree<T> {
     private AVLNode<T> rightRotate(AVLNode<T> node) {
        
     if (node.getLeft() == null) {
-        // Perform a single rotation
+        
         return node.getRight();
     }
     AVLNode<T> l = node.getLeft();
@@ -41,7 +42,7 @@ public class AVLTree<T> {
 private AVLNode<T> leftRotate(AVLNode<T> node) {
    
     if (node.getRight() == null) {
-        // Perform a single rotation
+        
         return node.getLeft();
     }
     AVLNode<T> r = node.getRight();
@@ -59,6 +60,12 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return height(N.left) - height(N.right);
     }
 
+    /**
+     *adds a leaf
+     * @author Vicentre Tralci
+     * @param key
+     * @param data
+     */
     public void addLeaf(int key, T data) {
         root = insert(this.root, key, data);
     }
@@ -109,14 +116,28 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return node;
     }
 
+    /**
+     *
+     * @return
+     */
     public AVLNode<T> getRoot() {
         return root;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void setRoot(AVLNode<T> root) {
         this.root = root;
     }
     
+    /**
+     * Searches a node
+     *@author Vicentre Tralci
+     * @param key
+     * @return
+     */
     public AVLNode<T> search(int key) {
     AVLNode<T> current = root;
     while (current != null) {
@@ -131,6 +152,12 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     return null;
 }
     
+    /**
+     * deletes a node
+     *@author Vicentre Tralci
+     * @param key
+     * @param data
+     */
     public void delete(int key, T data) {
         root = deleteNode(root, key, data);
     }
@@ -160,6 +187,11 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return rotate(node);
     }
     
+    /**
+     *@author Vicentre Tralci
+     * @param node
+     * @return
+     */
     public AVLNode minValueNode(AVLNode node) {
         AVLNode current = node;
         while (current.left != null) {
@@ -168,7 +200,12 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return current;
     }
     
-     public void inOrderTraversal(Consumer<T> consumer) {
+    /**
+     * does an in order transversal
+     *@author Santiago del Castillo
+     * @param consumer
+     */
+    public void inOrderTraversal(Consumer<T> consumer) {
         inOrderTraversal(root, consumer);
     }
 

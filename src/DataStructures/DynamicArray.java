@@ -8,12 +8,16 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
  *
- * @author Santiago
+ * @author Santiago del Castillo
+ * @param <T>
  */
 public class DynamicArray<T> implements Iterable<T> {
     private Object[] data;
     private int size;
 
+    /**
+     *
+     */
     public DynamicArray() {
         data = new Object[1];
         size = 0;
@@ -28,6 +32,11 @@ public class DynamicArray<T> implements Iterable<T> {
         }
     }
     
+    /**
+     *adds an element
+     * @author Santiago del Castillo
+     * @param element
+     */
     public void add(Object element) {
         if (size == data.length) {
             checkCapacity(2 * data.length);
@@ -35,6 +44,11 @@ public class DynamicArray<T> implements Iterable<T> {
         data[size++] = element;
     }
 
+    /**
+     *removes an element
+     * @author Santiago del Castillo
+     * @param index
+     */
     public void remove(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -46,6 +60,11 @@ public class DynamicArray<T> implements Iterable<T> {
         size--;
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     public Object get(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -53,14 +72,20 @@ public class DynamicArray<T> implements Iterable<T> {
         return data[index];
     }
 
+    /**
+     *
+     * @return
+     */
     public int size() {
         return size;
     }
 
-
-
-
-        @Override
+    /**
+     * iterates, necessary when creating a dynamic array from scratch
+     *@author Santiago del Castillo
+     * @return
+     */
+    @Override
         public Iterator<T> iterator() {
             return new Iterator<T>() {
                 private int currentIndex = 0;

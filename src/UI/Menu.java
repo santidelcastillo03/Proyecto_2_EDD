@@ -20,6 +20,9 @@ public class Menu extends javax.swing.JFrame {
     CheckIn checkIn = new CheckIn();
     CheckOut checkOut = new CheckOut();
     
+    /**
+     *
+     */
     public Menu() {
         initComponents();
         this.setVisible(true);
