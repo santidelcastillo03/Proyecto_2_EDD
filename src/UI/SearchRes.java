@@ -4,7 +4,11 @@
  */
 package UI;
 
+import DataStructures.AVLNode;
+import hotelbookingsystem.ClientReservation;
+import hotelbookingsystem.Hotel;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -12,7 +16,7 @@ import javax.swing.WindowConstants;
  * @author Santiago
  */
 public class SearchRes extends javax.swing.JFrame {
-
+    Hotel hotel = Hotel.getInstance();
     /**
      * Creates new form SearchRes
      */
@@ -42,7 +46,14 @@ public class SearchRes extends javax.swing.JFrame {
         gci = new javax.swing.JTextField();
         rsearchbtn = new javax.swing.JPanel();
         rsearchtxt = new javax.swing.JLabel();
-        reservationlabel = new javax.swing.JLabel();
+        searchsubt1 = new javax.swing.JLabel();
+        searchsubt2 = new javax.swing.JLabel();
+        searchsubt3 = new javax.swing.JLabel();
+        gci1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        searchsubt4 = new javax.swing.JLabel();
+        searchsubt5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -109,14 +120,13 @@ public class SearchRes extends javax.swing.JFrame {
 
         searchsubt.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
         searchsubt.setForeground(new java.awt.Color(0, 102, 102));
-        searchsubt.setText("SEARCH:");
-        bgsr.add(searchsubt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        bgsr.add(searchsubt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 10));
 
         separator.setForeground(new java.awt.Color(0, 0, 0));
         bgsr.add(separator, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 240, 10));
 
         gci.setBackground(new java.awt.Color(255, 255, 255));
-        gci.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        gci.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
         gci.setForeground(new java.awt.Color(0, 0, 0));
         gci.setText("Enter the id/ci");
         gci.setBorder(null);
@@ -138,7 +148,7 @@ public class SearchRes extends javax.swing.JFrame {
                 gciKeyTyped(evt);
             }
         });
-        bgsr.add(gci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, 50));
+        bgsr.add(gci, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 240, 20));
 
         rsearchbtn.setBackground(new java.awt.Color(0, 67, 67));
 
@@ -148,6 +158,9 @@ public class SearchRes extends javax.swing.JFrame {
         rsearchtxt.setText("SEARCH");
         rsearchtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rsearchtxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rsearchtxtMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 rsearchtxtMouseEntered(evt);
             }
@@ -169,9 +182,65 @@ public class SearchRes extends javax.swing.JFrame {
 
         bgsr.add(rsearchbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 130, 40));
 
-        reservationlabel.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
-        reservationlabel.setForeground(new java.awt.Color(0, 0, 0));
-        bgsr.add(reservationlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 500, 80));
+        searchsubt1.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        searchsubt1.setForeground(new java.awt.Color(0, 102, 102));
+        bgsr.add(searchsubt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 0, 10));
+
+        searchsubt2.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        searchsubt2.setText("p");
+        bgsr.add(searchsubt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 10, 10));
+
+        searchsubt3.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt3.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt3.setText("when writing the ID/CI number");
+        bgsr.add(searchsubt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 260, 30));
+
+        gci1.setBackground(new java.awt.Color(255, 255, 255));
+        gci1.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        gci1.setForeground(new java.awt.Color(0, 0, 0));
+        gci1.setBorder(null);
+        gci1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gci1MouseClicked(evt);
+            }
+        });
+        gci1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gci1ActionPerformed(evt);
+            }
+        });
+        gci1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gci1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gci1KeyTyped(evt);
+            }
+        });
+        bgsr.add(gci1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 10, 10));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextArea1);
+
+        bgsr.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 500, 220));
+
+        searchsubt4.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        searchsubt4.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt4.setText("SEARCH:");
+        bgsr.add(searchsubt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        searchsubt5.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt5.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt5.setText("Do not include the periods ");
+        bgsr.add(searchsubt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 220, 40));
 
         getContentPane().add(bgsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
@@ -188,6 +257,8 @@ public class SearchRes extends javax.swing.JFrame {
 
     private void srbacktxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseClicked
         this.setVisible(false); 
+        gci.setText("Enter the id/ci");
+        jTextArea1.setText("");
     }//GEN-LAST:event_srbacktxtMouseClicked
 
     private void gciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gciMouseClicked
@@ -213,6 +284,46 @@ public class SearchRes extends javax.swing.JFrame {
     private void rsearchtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsearchtxtMouseExited
         rsearchbtn.setBackground(new Color(0,67,67));
     }//GEN-LAST:event_rsearchtxtMouseExited
+
+    private void gci1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gci1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1MouseClicked
+
+    private void gci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gci1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1ActionPerformed
+
+    private void gci1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyPressed
+
+    private void gci1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyTyped
+
+    private void rsearchtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rsearchtxtMouseClicked
+        String idText = gci.getText().trim();
+        if (idText.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter an id.");
+        } else {
+            try {
+                int id = Integer.parseInt(idText);
+                AVLNode<ClientReservation> node = hotel.searchReservationByCi(id);
+                if (node != null) {
+                    ClientReservation reservation = node.getData();
+                    jTextArea1.setText(reservation.display());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Reservation not found");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid id. Please enter a numeric value.");
+            }
+        }
+    }//GEN-LAST:event_rsearchtxtMouseClicked
+
+    private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
+
+    }//GEN-LAST:event_jTextArea1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -253,12 +364,19 @@ public class SearchRes extends javax.swing.JFrame {
     private javax.swing.JPanel bar;
     private javax.swing.JPanel bgsr;
     private javax.swing.JTextField gci;
+    private javax.swing.JTextField gci1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel reservationlabel;
     private javax.swing.JPanel rsearchbtn;
     private javax.swing.JLabel rsearchtxt;
     private javax.swing.JLabel searchsubt;
+    private javax.swing.JLabel searchsubt1;
+    private javax.swing.JLabel searchsubt2;
+    private javax.swing.JLabel searchsubt3;
+    private javax.swing.JLabel searchsubt4;
+    private javax.swing.JLabel searchsubt5;
     private javax.swing.JSeparator separator;
     private javax.swing.JPanel srbackbtn;
     private javax.swing.JLabel srbacktxt;

@@ -4,6 +4,9 @@
  */
 package UI;
 
+import hotelbookingsystem.Hotel;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -11,7 +14,7 @@ import javax.swing.WindowConstants;
  * @author Santiago
  */
 public class CheckOut extends javax.swing.JFrame {
-
+    Hotel hotel = Hotel.getInstance();
     /**
      * Creates new form CheckOut
      */
@@ -31,27 +34,406 @@ public class CheckOut extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        bar = new javax.swing.JPanel();
+        title = new javax.swing.JLabel();
+        checkoutroomid = new javax.swing.JTextField();
+        gci1 = new javax.swing.JTextField();
+        checkouttxt1 = new javax.swing.JTextField();
+        srbackbtn = new javax.swing.JPanel();
+        srbacktxt = new javax.swing.JLabel();
+        srbackbtn1 = new javax.swing.JPanel();
+        srbacktxt2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        searchsubt5 = new javax.swing.JLabel();
+        searchsubt3 = new javax.swing.JLabel();
+        srbacktxt1 = new javax.swing.JLabel();
+        gci2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
-        jLabel1.setText("Full name:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
+        logo.setText(" ");
+        jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 140));
 
-        jLabel2.setText("CI:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+        bar.setBackground(new java.awt.Color(0, 67, 67));
 
-        jLabel3.setText("Room");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        title.setFont(new java.awt.Font("Snap ITC", 0, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("CHECK OUT");
+
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 560, 140));
+
+        checkoutroomid.setBackground(new java.awt.Color(255, 255, 255));
+        checkoutroomid.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        checkoutroomid.setForeground(new java.awt.Color(0, 0, 0));
+        checkoutroomid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        checkoutroomid.setText("Enter room id");
+        checkoutroomid.setBorder(null);
+        checkoutroomid.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkoutroomidMouseClicked(evt);
+            }
+        });
+        checkoutroomid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkoutroomidActionPerformed(evt);
+            }
+        });
+        checkoutroomid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkoutroomidKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                checkoutroomidKeyTyped(evt);
+            }
+        });
+        jPanel1.add(checkoutroomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 160, 20));
+
+        gci1.setBackground(new java.awt.Color(255, 255, 255));
+        gci1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        gci1.setForeground(new java.awt.Color(0, 0, 0));
+        gci1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gci1.setText("Enter the id/ci");
+        gci1.setBorder(null);
+        gci1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gci1MouseClicked(evt);
+            }
+        });
+        gci1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gci1ActionPerformed(evt);
+            }
+        });
+        gci1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gci1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gci1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(gci1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
+
+        checkouttxt1.setBackground(new java.awt.Color(255, 255, 255));
+        checkouttxt1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        checkouttxt1.setForeground(new java.awt.Color(0, 0, 0));
+        checkouttxt1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        checkouttxt1.setText("Enter the full name");
+        checkouttxt1.setBorder(null);
+        checkouttxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkouttxt1MouseClicked(evt);
+            }
+        });
+        checkouttxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkouttxt1ActionPerformed(evt);
+            }
+        });
+        checkouttxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                checkouttxt1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                checkouttxt1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(checkouttxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 220, -1));
+
+        srbackbtn.setBackground(new java.awt.Color(0, 67, 67));
+
+        srbacktxt.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt.setText("BACK");
+        srbacktxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout srbackbtnLayout = new javax.swing.GroupLayout(srbackbtn);
+        srbackbtn.setLayout(srbackbtnLayout);
+        srbackbtnLayout.setHorizontalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        srbackbtnLayout.setVerticalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(srbackbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 130, 40));
+
+        srbackbtn1.setBackground(new java.awt.Color(0, 67, 67));
+
+        srbacktxt2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt2.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt2.setText("Check-Out");
+        srbacktxt2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout srbackbtn1Layout = new javax.swing.GroupLayout(srbackbtn1);
+        srbackbtn1.setLayout(srbackbtn1Layout);
+        srbackbtn1Layout.setHorizontalGroup(
+            srbackbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtn1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        srbackbtn1Layout.setVerticalGroup(
+            srbackbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtn1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(srbackbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 130, 40));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 220, 10));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 220, 10));
+
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 220, 10));
+
+        searchsubt5.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt5.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt5.setText("Do not include the periods ");
+        jPanel1.add(searchsubt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 220, 40));
+
+        searchsubt3.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt3.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt3.setText("when writing the ID/CI number");
+        jPanel1.add(searchsubt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 260, 30));
+
+        srbacktxt1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt1.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt1.setText("BACK");
+        srbacktxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseExited(evt);
+            }
+        });
+        jPanel1.add(srbacktxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        gci2.setBackground(new java.awt.Color(255, 255, 255));
+        gci2.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        gci2.setForeground(new java.awt.Color(0, 0, 0));
+        gci2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gci2.setBorder(null);
+        gci2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gci2MouseClicked(evt);
+            }
+        });
+        gci2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gci2ActionPerformed(evt);
+            }
+        });
+        gci2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gci2KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gci2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(gci2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 10, 10));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkoutroomidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkoutroomidMouseClicked
+        checkoutroomid.setText("");
+    }//GEN-LAST:event_checkoutroomidMouseClicked
+
+    private void checkoutroomidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutroomidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkoutroomidActionPerformed
+
+    private void checkoutroomidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkoutroomidKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkoutroomidKeyPressed
+
+    private void checkoutroomidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkoutroomidKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkoutroomidKeyTyped
+
+    private void gci1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gci1MouseClicked
+       gci1.setText("");
+    }//GEN-LAST:event_gci1MouseClicked
+
+    private void gci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gci1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1ActionPerformed
+
+    private void gci1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyPressed
+
+    private void gci1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyTyped
+
+    private void checkouttxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkouttxt1MouseClicked
+       checkouttxt1.setText("");
+    }//GEN-LAST:event_checkouttxt1MouseClicked
+
+    private void checkouttxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkouttxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkouttxt1ActionPerformed
+
+    private void checkouttxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkouttxt1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkouttxt1KeyPressed
+
+    private void checkouttxt1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_checkouttxt1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkouttxt1KeyTyped
+
+    private void srbacktxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseClicked
+        this.setVisible(false);
+        gci1.setText("Enter the id/ci");
+        checkouttxt1.setText("Enter the full name");
+        checkoutroomid.setText("Enter the room id");
+    }//GEN-LAST:event_srbacktxtMouseClicked
+
+    private void srbacktxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseEntered
+        srbackbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_srbacktxtMouseEntered
+
+    private void srbacktxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseExited
+        srbackbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_srbacktxtMouseExited
+
+    private void srbacktxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseClicked
+
+    private void srbacktxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseEntered
+
+    private void srbacktxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseExited
+
+    private void srbacktxt2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseClicked
+        String roomIdText = checkoutroomid.getText().trim();
+        String idText = gci1.getText().trim();
+        String name = checkouttxt1.getText().trim();
+
+        if (roomIdText.isEmpty() || idText.isEmpty() || name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all fields.");
+        } else {
+            try {
+                int roomId = Integer.parseInt(roomIdText);
+                int id = Integer.parseInt(idText);
+                try {
+                    String[] nameParts = name.split(" ");
+                    if (nameParts.length == 2) {
+                        String firstName = nameParts[0].substring(0, 1).toUpperCase() + nameParts[0].substring(1).toLowerCase();
+                        String lastName = nameParts[1].substring(0, 1).toUpperCase() + nameParts[1].substring(1).toLowerCase();
+                        name = firstName + " " + lastName;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please enter the full name in the format: Firstname Lastname");
+                        return;
+                    }
+                    hotel.checkOut(name, roomId, id);
+                    JOptionPane.showMessageDialog(null, "Check-out successful.");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Check-out failed. " + e.getMessage());
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid id or room id. Please enter numeric values.");
+            }
+        }
+    }//GEN-LAST:event_srbacktxt2MouseClicked
+
+    private void srbacktxt2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt2MouseEntered
+
+    private void srbacktxt2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt2MouseExited
+
+    private void gci2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gci2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci2MouseClicked
+
+    private void gci2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gci2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci2ActionPerformed
+
+    private void gci2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci2KeyPressed
+
+    private void gci2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -89,9 +471,23 @@ public class CheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel bar;
+    private javax.swing.JTextField checkoutroomid;
+    private javax.swing.JTextField checkouttxt1;
+    private javax.swing.JTextField gci1;
+    private javax.swing.JTextField gci2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel searchsubt3;
+    private javax.swing.JLabel searchsubt5;
+    private javax.swing.JPanel srbackbtn;
+    private javax.swing.JPanel srbackbtn1;
+    private javax.swing.JLabel srbacktxt;
+    private javax.swing.JLabel srbacktxt1;
+    private javax.swing.JLabel srbacktxt2;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

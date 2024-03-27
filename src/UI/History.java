@@ -4,7 +4,11 @@
  */
 package UI;
 
+import DataStructures.DynamicArray;
+import hotelbookingsystem.Hotel;
+import hotelbookingsystem.RoomHistory;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -12,7 +16,8 @@ import javax.swing.WindowConstants;
  * @author Santiago
  */
 public class History extends javax.swing.JFrame {
-
+    Hotel hotel = Hotel.getInstance();    
+    
     /**
      * Creates new form History
      */
@@ -45,6 +50,7 @@ public class History extends javax.swing.JFrame {
         searchtxth = new javax.swing.JLabel();
         backbtnh = new javax.swing.JPanel();
         backtxth = new javax.swing.JLabel();
+        RoomIDInput1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,27 +68,37 @@ public class History extends javax.swing.JFrame {
         JFrameA.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 60));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        JFrameA.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 220, 10));
+        JFrameA.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 220, -1));
 
         RoomIDInput.setBackground(new java.awt.Color(255, 255, 255));
-        RoomIDInput.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        RoomIDInput.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
         RoomIDInput.setForeground(new java.awt.Color(0, 0, 0));
         RoomIDInput.setText("Enter the room id");
         RoomIDInput.setBorder(null);
+        RoomIDInput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RoomIDInputMouseClicked(evt);
+            }
+        });
         RoomIDInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoomIDInputActionPerformed(evt);
             }
         });
-        JFrameA.add(RoomIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, 40));
+        JFrameA.add(RoomIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 240, 20));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("AQUI QUE APAREZCA LA LISTA DE \nHISTORICO");
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
-        JFrameA.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 600, 220));
+        JFrameA.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 510, 220));
 
         logohistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
         logohistory.setText(" ");
@@ -116,6 +132,9 @@ public class History extends javax.swing.JFrame {
         searchtxth.setText("SEARCH");
         searchtxth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         searchtxth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchtxthMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 searchtxthMouseEntered(evt);
             }
@@ -171,6 +190,22 @@ public class History extends javax.swing.JFrame {
 
         JFrameA.add(backbtnh, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 130, 40));
 
+        RoomIDInput1.setBackground(new java.awt.Color(255, 255, 255));
+        RoomIDInput1.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        RoomIDInput1.setForeground(new java.awt.Color(0, 0, 0));
+        RoomIDInput1.setBorder(null);
+        RoomIDInput1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RoomIDInput1MouseClicked(evt);
+            }
+        });
+        RoomIDInput1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomIDInput1ActionPerformed(evt);
+            }
+        });
+        JFrameA.add(RoomIDInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 0, 10));
+
         getContentPane().add(JFrameA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
@@ -194,11 +229,54 @@ public class History extends javax.swing.JFrame {
 
     private void backtxthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backtxthMouseClicked
         this.setVisible(false); 
+        jTextArea1.setText("");
+        RoomIDInput.setText("Enter the room id");
     }//GEN-LAST:event_backtxthMouseClicked
 
     private void searchtxthMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtxthMouseExited
         searchbtnh.setBackground(new Color(0,67,67));
     }//GEN-LAST:event_searchtxthMouseExited
+
+    private void RoomIDInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RoomIDInputMouseClicked
+        RoomIDInput.setText("");
+    }//GEN-LAST:event_RoomIDInputMouseClicked
+
+    private void RoomIDInput1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RoomIDInput1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomIDInput1MouseClicked
+
+    private void RoomIDInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomIDInput1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomIDInput1ActionPerformed
+
+    private void searchtxthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchtxthMouseClicked
+        if (RoomIDInput.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter a room ID.");
+        } else {
+            try {
+                int roomID = Integer.parseInt(RoomIDInput.getText().trim());
+                DynamicArray<RoomHistory> a = null;
+                if (hotel.searchHistoryByRoom(roomID) != null) {
+                    a = (DynamicArray) hotel.searchHistoryByRoom(roomID).getData();
+                }
+                if (a == null || a.size() == 0) {
+                    JOptionPane.showMessageDialog(null, "No history found for this room ID.");
+                } else {
+                    jTextArea1.setText("Room: "+RoomIDInput.getText()+"\n");
+                    for (RoomHistory p : a) {
+                        jTextArea1.append("ID: "+p.getID()+" | Name: "+p.getName()+" | Last Name: "+p.getLastName()+"\n");
+                    }
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid room ID. Please enter a numeric value.");
+            }
+        }
+    }//GEN-LAST:event_searchtxthMouseClicked
+
+    private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
+        
+        
+    }//GEN-LAST:event_jTextArea1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -238,6 +316,7 @@ public class History extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JFrameA;
     private javax.swing.JTextField RoomIDInput;
+    private javax.swing.JTextField RoomIDInput1;
     private javax.swing.JPanel backbtnh;
     private javax.swing.JLabel backtxth;
     private javax.swing.JPanel barhistory;

@@ -20,6 +20,7 @@ public class Hotel {
     private READERconAVL csvReaderconAVL;
     private AVLTree<ClientReservation> reservations;
     private AVLTree<DynamicArray<RoomHistory>> roomHistory;
+    private static Hotel instance;
 
 
     public Hotel() {
@@ -31,8 +32,15 @@ public class Hotel {
         this.csvReaderconAVL = new READERconAVL();
         this.reservations = csvReaderconAVL.readReservasCSV();
         this.roomHistory = csvReaderconAVL.readHistoricoCSV();
+        
     }
-
+    
+    public static synchronized Hotel getInstance() {
+        if (instance == null) {
+            instance = new Hotel();
+        }
+        return instance;
+    }
 
     public void uploadClient(Guest client) {
         String key = client.getName() + " " + client.getLastName();
@@ -108,8 +116,14 @@ public class Hotel {
 
 
 
-    public void checkOut(String fullName, int roomNum, int ci) {
+    public void checkOut(String fullName, int roomNum, int ci) throws Exception {
         Guest guest = currentGuestsName.get(fullName);
+        if (guest == null) {
+            throw new Exception("Guest not found.");
+        }
+        if (!guest.getRoom().getID().equals(Integer.toString(roomNum))) {
+            throw new Exception("Room number does not match.");
+        }
         String newci = Integer.toString(ci);
         newci = newci.replace(".", "");
         StringBuilder id = new StringBuilder();

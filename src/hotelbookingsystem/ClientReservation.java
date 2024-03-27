@@ -113,7 +113,7 @@ public class ClientReservation{
     }
     
     public String display() {
-    return "C.i: "+ci+"\nName: "+firstName+"\nLast Name: "+lastName
+    return "ID/CI: "+ci+"\nName: "+firstName+"\nLast Name: "+lastName
         +"\nEmail: "+email+"\nGender: "+gender+"\nRoom Type: "+roomType
         +"\nPhone Number: "+phoneNum+"\nArrival: "+arrival+"\nDeparture: "+departure;
     }

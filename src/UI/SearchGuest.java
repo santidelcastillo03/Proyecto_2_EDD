@@ -14,7 +14,7 @@ import javax.swing.WindowConstants;
  * @author Santiago
  */
 public class SearchGuest extends javax.swing.JFrame {
-    Hotel hotel = new Hotel();
+    Hotel hotel = Hotel.getInstance();
     /**
      * Creates new form SearchGuest
      */
@@ -22,6 +22,7 @@ public class SearchGuest extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        this.setResizable(false);
     }
 
     /**
@@ -54,6 +55,7 @@ public class SearchGuest extends javax.swing.JFrame {
 
         bgsearchg.setBackground(new java.awt.Color(255, 255, 255));
         bgsearchg.setForeground(new java.awt.Color(102, 102, 102));
+        bgsearchg.setMaximumSize(new java.awt.Dimension(800, 480));
         bgsearchg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
@@ -183,7 +185,7 @@ public class SearchGuest extends javax.swing.JFrame {
         bgsearchg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 240, 10));
 
         glastname.setBackground(new java.awt.Color(255, 255, 255));
-        glastname.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        glastname.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
         glastname.setForeground(new java.awt.Color(0, 0, 0));
         glastname.setText("Enter the last name");
         glastname.setBorder(null);
@@ -202,10 +204,10 @@ public class SearchGuest extends javax.swing.JFrame {
                 glastnameKeyPressed(evt);
             }
         });
-        bgsearchg.add(glastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 240, 50));
+        bgsearchg.add(glastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 240, 20));
 
         gfirstname1.setBackground(new java.awt.Color(255, 255, 255));
-        gfirstname1.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        gfirstname1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
         gfirstname1.setForeground(new java.awt.Color(0, 0, 0));
         gfirstname1.setText("Enter the first name");
         gfirstname1.setBorder(null);
@@ -227,7 +229,7 @@ public class SearchGuest extends javax.swing.JFrame {
                 gfirstname1KeyTyped(evt);
             }
         });
-        bgsearchg.add(gfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, 50));
+        bgsearchg.add(gfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 240, 20));
 
         roomLabel.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         roomLabel.setForeground(new java.awt.Color(0, 102, 102));
@@ -266,16 +268,21 @@ public class SearchGuest extends javax.swing.JFrame {
     }//GEN-LAST:event_searchgtxtMouseExited
 
     private void searchgtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchgtxtMouseClicked
-        String name = gfirstname1.getText();
-        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        String lastName = glastname.getText();
-        String capitalizedLastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-        
-        String roomID = hotel.checkGuest(capitalizedName, capitalizedLastName);
-        if (roomID == null) {
-            JOptionPane.showMessageDialog(null, "Guest not found");
+        String name = gfirstname1.getText().trim();
+        String lastName = glastname.getText().trim();
+
+        if (name.isEmpty() || lastName.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter both first name and last name.");
         } else {
-            roomLabel.setText("Room: "+roomID);
+            String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+            String capitalizedLastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+
+            String roomID = hotel.checkGuest(capitalizedName, capitalizedLastName);
+            if (roomID == null) {
+                JOptionPane.showMessageDialog(null, "Guest not found");
+            } else {
+                roomLabel.setText("Room: "+roomID);
+                }
         }
         gfirstname1.setText("Enter the first name");
         glastname.setText("Enter the last name");

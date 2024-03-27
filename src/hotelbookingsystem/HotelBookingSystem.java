@@ -19,13 +19,17 @@ public class HotelBookingSystem {
      */
     public static void main(String[] args) {
         Menu ui = new Menu();
-        Hotel hotel = new Hotel();
+        Hotel hotel = Hotel.getInstance();
         READERconAVL r = new READERconAVL();
         
-       // hotel.checkIn(10203485);
-        
-       // hotel.checkOut("Joell Woolforde", 189, 1461376657);
-        //hotel.checkIn(10054218);
+       //hotel.checkIn(10203485);
+
+//        try {
+//            hotel.checkOut("Corry Poytheras", 236, 10203485);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//       hotel.checkIn(10054218);
         
         String roomID = hotel.checkGuest("Winthrop","Arnke");
         if (roomID != null) {

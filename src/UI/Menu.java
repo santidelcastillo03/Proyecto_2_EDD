@@ -310,7 +310,7 @@ public class Menu extends javax.swing.JFrame {
         authors.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         authors.setForeground(new java.awt.Color(0, 0, 0));
         authors.setText("Made by: Santiago Del Castillo, Angel Garcia, Vicente Tralci.");
-        bg.add(authors, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, -1, -1));
+        bg.add(authors, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, -1, -1));
 
         corner.setText(" ");
         bg.add(corner, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 580, 20, -1));

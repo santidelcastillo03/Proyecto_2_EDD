@@ -4,6 +4,9 @@
  */
 package UI;
 
+import hotelbookingsystem.Hotel;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -11,7 +14,7 @@ import javax.swing.WindowConstants;
  * @author Santiago
  */
 public class CheckIn extends javax.swing.JFrame {
-    
+    Hotel hotel = Hotel.getInstance();
     /**
      * Creates new form CheckIn
      */
@@ -30,20 +33,403 @@ public class CheckIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        bg = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        bar = new javax.swing.JPanel();
+        title = new javax.swing.JLabel();
+        srbackbtn = new javax.swing.JPanel();
+        srbacktxt1 = new javax.swing.JLabel();
+        srbacktxt2 = new javax.swing.JLabel();
+        srbacktxt3 = new javax.swing.JLabel();
+        srbacktxt4 = new javax.swing.JLabel();
+        srbacktxt = new javax.swing.JLabel();
+        gci = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        searchsubt5 = new javax.swing.JLabel();
+        searchsubt3 = new javax.swing.JLabel();
+        srbackbtn1 = new javax.swing.JPanel();
+        srbacktxt5 = new javax.swing.JLabel();
+        gci1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("CI: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGOOO.png"))); // NOI18N
+        logo.setText(" ");
+        bg.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 140));
+
+        bar.setBackground(new java.awt.Color(0, 67, 67));
+
+        title.setFont(new java.awt.Font("Snap ITC", 0, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("CHECK IN");
+
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 560, 140));
+
+        srbackbtn.setBackground(new java.awt.Color(0, 67, 67));
+
+        srbacktxt1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt1.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt1.setText("BACK");
+        srbacktxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt1MouseExited(evt);
+            }
+        });
+
+        srbacktxt2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt2.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt2.setText("BACK");
+        srbacktxt2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt2MouseExited(evt);
+            }
+        });
+
+        srbacktxt3.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt3.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt3.setText("BACK");
+        srbacktxt3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt3MouseExited(evt);
+            }
+        });
+
+        srbacktxt4.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt4.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt4.setText("BACK");
+        srbacktxt4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt4MouseExited(evt);
+            }
+        });
+
+        srbacktxt.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt.setText("BACK");
+        srbacktxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout srbackbtnLayout = new javax.swing.GroupLayout(srbackbtn);
+        srbackbtn.setLayout(srbackbtnLayout);
+        srbackbtnLayout.setHorizontalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(srbackbtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(srbacktxt1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(srbacktxt2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtnLayout.createSequentialGroup()
+                        .addComponent(srbacktxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(srbacktxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(srbacktxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        srbackbtnLayout.setVerticalGroup(
+            srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(srbackbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(srbacktxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(srbacktxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(srbacktxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(srbackbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 130, 40));
+
+        gci.setBackground(new java.awt.Color(255, 255, 255));
+        gci.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        gci.setForeground(new java.awt.Color(0, 0, 0));
+        gci.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gci.setText("Enter the id/ci");
+        gci.setBorder(null);
+        gci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gciMouseClicked(evt);
+            }
+        });
+        gci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gciActionPerformed(evt);
+            }
+        });
+        gci.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gciKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gciKeyTyped(evt);
+            }
+        });
+        bg.add(gci, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 230, 30));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 220, -1));
+
+        searchsubt5.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt5.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt5.setText("Do not include the periods ");
+        bg.add(searchsubt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 220, 40));
+
+        searchsubt3.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        searchsubt3.setForeground(new java.awt.Color(0, 102, 102));
+        searchsubt3.setText("when writing the ID/CI number");
+        bg.add(searchsubt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 260, 30));
+
+        srbackbtn1.setBackground(new java.awt.Color(0, 67, 67));
+
+        srbacktxt5.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        srbacktxt5.setForeground(new java.awt.Color(255, 255, 255));
+        srbacktxt5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        srbacktxt5.setText("Check-In");
+        srbacktxt5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        srbacktxt5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                srbacktxt5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                srbacktxt5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                srbacktxt5MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout srbackbtn1Layout = new javax.swing.GroupLayout(srbackbtn1);
+        srbackbtn1.setLayout(srbackbtn1Layout);
+        srbackbtn1Layout.setHorizontalGroup(
+            srbackbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtn1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        srbackbtn1Layout.setVerticalGroup(
+            srbackbtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srbackbtn1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(srbacktxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(srbackbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 130, 40));
+
+        gci1.setBackground(new java.awt.Color(255, 255, 255));
+        gci1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        gci1.setForeground(new java.awt.Color(0, 0, 0));
+        gci1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gci1.setBorder(null);
+        gci1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gci1MouseClicked(evt);
+            }
+        });
+        gci1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gci1ActionPerformed(evt);
+            }
+        });
+        gci1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                gci1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gci1KeyTyped(evt);
+            }
+        });
+        bg.add(gci1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 10, 10));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void srbacktxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_srbacktxtMouseClicked
+
+    private void srbacktxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseEntered
+        srbackbtn.setBackground(new Color(0,160,133));
+    }//GEN-LAST:event_srbacktxtMouseEntered
+
+    private void srbacktxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxtMouseExited
+        srbackbtn.setBackground(new Color(0,67,67));
+    }//GEN-LAST:event_srbacktxtMouseExited
+
+    private void gciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gciMouseClicked
+        gci.setText("");
+    }//GEN-LAST:event_gciMouseClicked
+
+    private void gciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gciActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gciActionPerformed
+
+    private void gciKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gciKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gciKeyPressed
+
+    private void gciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gciKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gciKeyTyped
+
+    private void srbacktxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseClicked
+
+    private void srbacktxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseEntered
+
+    private void srbacktxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt1MouseExited
+
+    private void srbacktxt2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt2MouseClicked
+
+    private void srbacktxt2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt2MouseEntered
+
+    private void srbacktxt2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt2MouseExited
+
+    private void srbacktxt3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt3MouseClicked
+        gci.setText("Enter the id/ci");
+        this.setVisible(false);
+    }//GEN-LAST:event_srbacktxt3MouseClicked
+
+    private void srbacktxt3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt3MouseEntered
+
+    private void srbacktxt3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt3MouseExited
+
+    private void srbacktxt4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt4MouseClicked
+
+    private void srbacktxt4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt4MouseEntered
+
+    private void srbacktxt4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt4MouseExited
+
+    private void srbacktxt5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt5MouseClicked
+        String idText = gci.getText().trim();
+        if (idText.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter an id.");
+        } else {
+            try {
+                int id = Integer.parseInt(idText);
+                try {
+                    hotel.checkIn(id);
+                    JOptionPane.showMessageDialog(null, "Check-in successful.");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Check-in failed. Please ensure the id is correct.");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid id. Please enter a numeric value.");
+            }
+        }
+        gci.setText("Enter the id/ci");
+    }//GEN-LAST:event_srbacktxt5MouseClicked
+
+    private void srbacktxt5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt5MouseEntered
+
+    private void srbacktxt5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_srbacktxt5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srbacktxt5MouseExited
+
+    private void gci1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gci1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1MouseClicked
+
+    private void gci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gci1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1ActionPerformed
+
+    private void gci1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyPressed
+
+    private void gci1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gci1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gci1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -81,7 +467,22 @@ public class CheckIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel bar;
+    private javax.swing.JPanel bg;
+    private javax.swing.JTextField gci;
+    private javax.swing.JTextField gci1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel searchsubt3;
+    private javax.swing.JLabel searchsubt5;
+    private javax.swing.JPanel srbackbtn;
+    private javax.swing.JPanel srbackbtn1;
+    private javax.swing.JLabel srbacktxt;
+    private javax.swing.JLabel srbacktxt1;
+    private javax.swing.JLabel srbacktxt2;
+    private javax.swing.JLabel srbacktxt3;
+    private javax.swing.JLabel srbacktxt4;
+    private javax.swing.JLabel srbacktxt5;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
